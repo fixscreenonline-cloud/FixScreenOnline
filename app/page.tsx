@@ -82,10 +82,26 @@ export default function Home() {
     issue: "",
   });
 
+  // Check if all required fields are filled
+  const isFormValid = () => {
+    return (
+      formData.name.trim() !== "" &&
+      formData.phone.trim() !== "" &&
+      formData.device !== "" &&
+      formData.issue.trim() !== ""
+    );
+  };
+
   const handleSubmit = async (e?: React.FormEvent) => {
     if (e) {
       e.preventDefault();
     }
+    
+    // Validate form before submitting
+    if (!isFormValid()) {
+      return;
+    }
+    
     setIsSubmitting(true);
 
     try {
@@ -1071,8 +1087,7 @@ export default function Home() {
                 />
 
                 <Input
-                  required
-                  label="Email Address"
+                  label="Email Address (Optional)"
                   placeholder="your@email.com"
                   size="sm"
                   type="email"
@@ -1157,7 +1172,8 @@ export default function Home() {
                 Cancel
               </Button>
               <Button
-                className="bg-gradient-to-r from-violet-600 via-purple-600 to-blue-600 text-white font-semibold shadow-lg shadow-violet-500/30 flex-1 text-sm sm:text-base h-11"
+                className="bg-gradient-to-r from-violet-600 via-purple-600 to-blue-600 text-white font-semibold shadow-lg shadow-violet-500/30 flex-1 text-sm sm:text-base h-11 disabled:opacity-50 disabled:cursor-not-allowed"
+                isDisabled={!isFormValid() || isSubmitting}
                 isLoading={isSubmitting}
                 size="md"
                 startContent={
