@@ -6,9 +6,9 @@ export async function POST(request: NextRequest) {
     const { name, email, phone, device, issue } = body;
 
     // Validate required fields
-    if (!name || !email || !phone || !device || !issue) {
+    if (!name || !phone || !device || !issue) {
       return NextResponse.json(
-        { error: "All fields are required" },
+        { error: "Name, phone, device, and issue description are required" },
         { status: 400 },
       );
     }
@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
             
             <div style="background-color: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0;">
               <p style="margin: 10px 0;"><strong>Name:</strong> ${name}</p>
-              <p style="margin: 10px 0;"><strong>Email:</strong> ${email}</p>
+              ${email ? `<p style="margin: 10px 0;"><strong>Email:</strong> ${email}</p>` : ""}
               <p style="margin: 10px 0;"><strong>Phone:</strong> ${phone}</p>
               <p style="margin: 10px 0;"><strong>Device:</strong> ${device}</p>
             </div>
