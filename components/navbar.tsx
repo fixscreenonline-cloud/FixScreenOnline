@@ -7,32 +7,29 @@ import {
   NavbarItem,
   NavbarMenuItem,
 } from "@heroui/navbar";
-import { Button } from "@heroui/button";
-import { Kbd } from "@heroui/kbd";
 import { Link } from "@heroui/link";
-import { Input } from "@heroui/input";
-import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
-import clsx from "clsx";
 
 import { siteConfig } from "@/config/site";
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchIcon,
-  Logo,
-} from "@/components/icons";
+import { Logo } from "@/components/icons";
 
 export const Navbar = () => {
   return (
-    <HeroUINavbar maxWidth="2xl" position="sticky" className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-200 shadow-sm">
+    <HeroUINavbar
+      className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-200 shadow-sm"
+      maxWidth="2xl"
+      position="sticky"
+    >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
-          <NextLink className="flex justify-start items-center gap-2 hover:opacity-80 transition-opacity" href="/">
+          <NextLink
+            className="flex justify-start items-center gap-2 hover:opacity-80 transition-opacity"
+            href="/"
+          >
             <Logo />
-            <p className="font-bold text-lg sm:text-xl text-gray-900">Apple Repair Pro</p>
+            <p className="font-bold text-lg sm:text-xl text-gray-900">
+              Apple Repair Pro
+            </p>
           </NextLink>
         </NavbarBrand>
         <ul className="hidden lg:flex gap-6 xl:gap-8 justify-start ml-auto">

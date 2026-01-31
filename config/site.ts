@@ -2,7 +2,8 @@ export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "Apple Repair Pro",
-  description: "Expert Apple device repair services. Fast, reliable, and affordable repairs for iPhone, iPad, Mac, and more.",
+  description:
+    "Expert Apple device repair services. Fast, reliable, and affordable repairs for iPhone, iPad, Mac, and more.",
   navItems: [
     {
       label: "Home",

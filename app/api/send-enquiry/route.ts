@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
@@ -8,38 +8,39 @@ export async function POST(request: NextRequest) {
     // Validate required fields
     if (!name || !email || !phone || !device || !issue) {
       return NextResponse.json(
-        { error: 'All fields are required' },
-        { status: 400 }
+        { error: "All fields are required" },
+        { status: 400 },
       );
     }
 
     // For now, we'll use Resend (popular choice for Next.js)
     // Install with: npm install resend
     // You'll need to add RESEND_API_KEY to your .env.local
-    
+
     // If you want to use a different service like SendGrid or Nodemailer,
     // you can replace this section with your preferred email service
 
     const RESEND_API_KEY = process.env.RESEND_API_KEY;
-    const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'your-email@example.com';
+    const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "your-email@example.com";
 
     if (!RESEND_API_KEY) {
-      console.error('RESEND_API_KEY is not set in environment variables');
+      console.error("RESEND_API_KEY is not set in environment variables");
+
       return NextResponse.json(
-        { error: 'Email service not configured' },
-        { status: 500 }
+        { error: "Email service not configured" },
+        { status: 500 },
       );
     }
 
     // Send email using Resend API
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
       headers: {
-        'Authorization': `Bearer ${RESEND_API_KEY}`,
-        'Content-Type': 'application/json',
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: 'onboarding@resend.dev', // You'll need to verify your domain
+        from: "onboarding@resend.dev", // You'll need to verify your domain
         to: ADMIN_EMAIL,
         subject: `New Repair Request from ${name}`,
         html: `
@@ -73,23 +74,24 @@ export async function POST(request: NextRequest) {
     const data = await response.json();
 
     if (!response.ok) {
-      console.error('Resend API error:', data);
+      console.error("Resend API error:", data);
+
       return NextResponse.json(
-        { error: 'Failed to send email' },
-        { status: 500 }
+        { error: "Failed to send email" },
+        { status: 500 },
       );
     }
 
     return NextResponse.json(
-      { success: true, message: 'Email sent successfully' },
-      { status: 200 }
+      { success: true, message: "Email sent successfully" },
+      { status: 200 },
     );
-
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error("Error sending email:", error);
+
     return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
+      { error: "Internal server error" },
+      { status: 500 },
     );
   }
 }

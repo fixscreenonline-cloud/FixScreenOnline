@@ -1,7 +1,6 @@
 "use client";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { MotionValue, motion, useScroll, useTransform } from "motion/react";
-import { cn } from "@/lib/utils";
 import {
   IconBrightnessDown,
   IconBrightnessUp,
@@ -23,8 +22,10 @@ import { IconWorld } from "@tabler/icons-react";
 import { IconCommand } from "@tabler/icons-react";
 import { IconCaretLeftFilled } from "@tabler/icons-react";
 import { IconCaretDownFilled } from "@tabler/icons-react";
+
 import { useHeroScroll } from "./hero-scroll-container";
 
+import { cn } from "@/lib/utils";
 
 export const MacbookScroll = ({
   src,
@@ -39,13 +40,13 @@ export const MacbookScroll = ({
 }) => {
   const heroScroll = useHeroScroll();
   const localRef = useRef<HTMLDivElement>(null);
-  
+
   // Use hero container's scroll progress if available, otherwise use local ref
   const { scrollYProgress: localScrollYProgress } = useScroll({
     target: localRef,
     offset: ["start start", "end end"],
   });
-  
+
   const scrollYProgress = heroScroll?.scrollYProgress || localScrollYProgress;
 
   const [isMobile, setIsMobile] = useState(false);
@@ -76,10 +77,10 @@ export const MacbookScroll = ({
     >
       {/* Lid */}
       <Lid
-        src={src}
+        rotate={rotate}
         scaleX={scaleX}
         scaleY={scaleY}
-        rotate={rotate}
+        src={src}
         translate={translate}
       />
       {/* Base area */}
@@ -102,7 +103,7 @@ export const MacbookScroll = ({
         <Trackpad />
         <div className="absolute inset-x-0 bottom-0 mx-auto h-2 w-20 rounded-tl-3xl rounded-tr-3xl bg-gradient-to-t from-[#272729] to-[#050505]" />
         {showGradient && (
-          <div className="absolute inset-x-0 bottom-0 z-50 h-40 w-full bg-gradient-to-t from-white via-white to-transparent dark:from-black dark:via-black"></div>
+          <div className="absolute inset-x-0 bottom-0 z-50 h-40 w-full bg-gradient-to-t from-white via-white to-transparent dark:from-black dark:via-black" />
         )}
         {badge && <div className="absolute bottom-4 left-4">{badge}</div>}
       </div>
@@ -126,24 +127,24 @@ export const Lid = ({
   return (
     <div className="relative [perspective:800px]">
       <div
+        className="relative h-[12rem] w-[32rem] rounded-2xl bg-[#010101] p-2"
         style={{
           transform: "perspective(800px) rotateX(-25deg) translateZ(0px)",
           transformOrigin: "bottom",
           transformStyle: "preserve-3d",
         }}
-        className="relative h-[12rem] w-[32rem] rounded-2xl bg-[#010101] p-2"
       >
         <div
+          className="absolute inset-0 flex items-center justify-center rounded-lg bg-[#010101] m-2"
           style={{
             boxShadow: "0px 2px 0px 2px #171717 inset",
           }}
-          className="absolute inset-0 flex items-center justify-center rounded-lg bg-[#010101] m-2"
         >
           {src && (
             <img
-              src={src}
               alt="macOS desktop"
               className="absolute inset-0 h-full w-full rounded-lg object-fill py-1"
+              src={src}
             />
           )}
           {/* <div className="relative z-10">
@@ -152,6 +153,7 @@ export const Lid = ({
         </div>
       </div>
       <motion.div
+        className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-[#010101] p-2"
         style={{
           scaleX: scaleX,
           scaleY: scaleY,
@@ -160,13 +162,12 @@ export const Lid = ({
           transformStyle: "preserve-3d",
           transformOrigin: "top",
         }}
-        className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-[#010101] p-2"
       >
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
         <img
-          src="/broken-screen.png"
           alt="broken screen"
           className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
+          src="/broken-screen.png"
         />
       </motion.div>
     </div>
@@ -180,7 +181,7 @@ export const Trackpad = () => {
       style={{
         boxShadow: "0px 0px 1px 1px #00000020 inset",
       }}
-    ></div>
+    />
   );
 };
 
@@ -190,8 +191,8 @@ export const Keypad = () => {
       {/* First Row */}
       <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
         <KBtn
-          className="w-10 items-end justify-start pb-[2px] pl-[4px]"
           childrenClassName="items-start"
+          className="w-10 items-end justify-start pb-[2px] pl-[4px]"
         >
           esc
         </KBtn>
@@ -305,8 +306,8 @@ export const Keypad = () => {
           <span className="block"> = </span>
         </KBtn>
         <KBtn
-          className="w-10 items-end justify-end pr-[4px] pb-[2px]"
           childrenClassName="items-end"
+          className="w-10 items-end justify-end pr-[4px] pb-[2px]"
         >
           delete
         </KBtn>
@@ -315,8 +316,8 @@ export const Keypad = () => {
       {/* Third row */}
       <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
         <KBtn
-          className="w-10 items-end justify-start pb-[2px] pl-[4px]"
           childrenClassName="items-start"
+          className="w-10 items-end justify-start pb-[2px] pl-[4px]"
         >
           tab
         </KBtn>
@@ -367,8 +368,8 @@ export const Keypad = () => {
       {/* Fourth Row */}
       <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
         <KBtn
-          className="w-[2.8rem] items-end justify-start pb-[2px] pl-[4px]"
           childrenClassName="items-start"
+          className="w-[2.8rem] items-end justify-start pb-[2px] pl-[4px]"
         >
           caps lock
         </KBtn>
@@ -408,8 +409,8 @@ export const Keypad = () => {
           <span className="block">{`'`}</span>
         </KBtn>
         <KBtn
-          className="w-[2.85rem] items-end justify-end pr-[4px] pb-[2px]"
           childrenClassName="items-end"
+          className="w-[2.85rem] items-end justify-end pr-[4px] pb-[2px]"
         >
           return
         </KBtn>
@@ -418,8 +419,8 @@ export const Keypad = () => {
       {/* Fifth Row */}
       <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
         <KBtn
-          className="w-[3.65rem] items-end justify-start pb-[2px] pl-[4px]"
           childrenClassName="items-start"
+          className="w-[3.65rem] items-end justify-start pb-[2px] pl-[4px]"
         >
           shift
         </KBtn>
@@ -457,8 +458,8 @@ export const Keypad = () => {
           <span className="block">{`/`}</span>
         </KBtn>
         <KBtn
-          className="w-[3.65rem] items-end justify-end pr-[4px] pb-[2px]"
           childrenClassName="items-end"
+          className="w-[3.65rem] items-end justify-end pr-[4px] pb-[2px]"
         >
           shift
         </KBtn>
@@ -466,7 +467,7 @@ export const Keypad = () => {
 
       {/* sixth Row */}
       <div className="mb-[2px] flex w-full shrink-0 gap-[2px]">
-        <KBtn className="" childrenClassName="h-full justify-between py-[4px]">
+        <KBtn childrenClassName="h-full justify-between py-[4px]" className="">
           <div className="flex w-full justify-end pr-1">
             <span className="block">fn</span>
           </div>
@@ -474,7 +475,7 @@ export const Keypad = () => {
             <IconWorld className="h-[6px] w-[6px]" />
           </div>
         </KBtn>
-        <KBtn className="" childrenClassName="h-full justify-between py-[4px]">
+        <KBtn childrenClassName="h-full justify-between py-[4px]" className="">
           <div className="flex w-full justify-end pr-1">
             <IconChevronUp className="h-[6px] w-[6px]" />
           </div>
@@ -482,7 +483,7 @@ export const Keypad = () => {
             <span className="block">control</span>
           </div>
         </KBtn>
-        <KBtn className="" childrenClassName="h-full justify-between py-[4px]">
+        <KBtn childrenClassName="h-full justify-between py-[4px]" className="">
           <div className="flex w-full justify-end pr-1">
             <OptionKey className="h-[6px] w-[6px]" />
           </div>
@@ -491,8 +492,8 @@ export const Keypad = () => {
           </div>
         </KBtn>
         <KBtn
-          className="w-8"
           childrenClassName="h-full justify-between py-[4px]"
+          className="w-8"
         >
           <div className="flex w-full justify-end pr-1">
             <IconCommand className="h-[6px] w-[6px]" />
@@ -501,10 +502,10 @@ export const Keypad = () => {
             <span className="block">command</span>
           </div>
         </KBtn>
-        <KBtn className="w-[8.2rem]"></KBtn>
+        <KBtn className="w-[8.2rem]" />
         <KBtn
-          className="w-8"
           childrenClassName="h-full justify-between py-[4px]"
+          className="w-8"
         >
           <div className="flex w-full justify-start pl-1">
             <IconCommand className="h-[6px] w-[6px]" />
@@ -513,7 +514,7 @@ export const Keypad = () => {
             <span className="block">command</span>
           </div>
         </KBtn>
-        <KBtn className="" childrenClassName="h-full justify-between py-[4px]">
+        <KBtn childrenClassName="h-full justify-between py-[4px]" className="">
           <div className="flex w-full justify-start pl-1">
             <OptionKey className="h-[6px] w-[6px]" />
           </div>
@@ -593,39 +594,39 @@ export const SpeakerGrid = () => {
           "radial-gradient(circle, #08080A 0.5px, transparent 0.5px)",
         backgroundSize: "3px 3px",
       }}
-    ></div>
+    />
   );
 };
 
 export const OptionKey = ({ className }: { className: string }) => {
   return (
     <svg
-      fill="none"
-      version="1.1"
-      id="icon"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 32 32"
       className={className}
+      fill="none"
+      id="icon"
+      version="1.1"
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <rect
+        height="2"
         stroke="currentColor"
         strokeWidth={2}
+        width="10"
         x="18"
         y="5"
-        width="10"
-        height="2"
       />
       <polygon
+        points="10.6,5 4,5 4,7 9.4,7 18.4,27 28,27 28,25 19.6,25 "
         stroke="currentColor"
         strokeWidth={2}
-        points="10.6,5 4,5 4,7 9.4,7 18.4,27 28,27 28,25 19.6,25 "
       />
       <rect
-        id="_Transparent_Rectangle_"
         className="st0"
-        width="32"
         height="32"
+        id="_Transparent_Rectangle_"
         stroke="none"
+        width="32"
       />
     </svg>
   );
@@ -634,19 +635,19 @@ export const OptionKey = ({ className }: { className: string }) => {
 const AceternityLogo = () => {
   return (
     <svg
-      width="66"
+      className="h-3 w-3 text-white"
+      fill="none"
       height="65"
       viewBox="0 0 66 65"
-      fill="none"
+      width="66"
       xmlns=""
-      className="h-3 w-3 text-white"
     >
       <path
         d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
         stroke="currentColor"
-        strokeWidth="15"
-        strokeMiterlimit="3.86874"
         strokeLinecap="round"
+        strokeMiterlimit="3.86874"
+        strokeWidth="15"
       />
     </svg>
   );

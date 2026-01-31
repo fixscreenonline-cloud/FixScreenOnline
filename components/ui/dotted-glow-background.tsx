@@ -77,16 +77,20 @@ export const DottedGlowBackground = ({
     const fromEl = getComputedStyle(el as Element)
       .getPropertyValue(normalized)
       .trim();
+
     if (fromEl) return fromEl;
     const root = document.documentElement;
     const fromRoot = getComputedStyle(root).getPropertyValue(normalized).trim();
+
     return fromRoot || null;
   };
 
   const detectDarkMode = (): boolean => {
     const root = document.documentElement;
+
     if (root.classList.contains("dark")) return true;
     if (root.classList.contains("light")) return false;
+
     return (
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -106,11 +110,13 @@ export const DottedGlowBackground = ({
       if (isDark) {
         const varDot = resolveCssVariable(container, colorDarkVar);
         const varGlow = resolveCssVariable(container, glowColorDarkVar);
+
         nextColor = varDot || darkColor || nextColor;
         nextGlow = varGlow || darkGlowColor || nextGlow;
       } else {
         const varDot = resolveCssVariable(container, colorLightVar);
         const varGlow = resolveCssVariable(container, glowColorLightVar);
+
         nextColor = varDot || nextColor;
         nextGlow = varGlow || nextGlow;
       }
@@ -125,9 +131,11 @@ export const DottedGlowBackground = ({
       ? window.matchMedia("(prefers-color-scheme: dark)")
       : null;
     const handleMql = () => compute();
+
     mql?.addEventListener?.("change", handleMql);
 
     const mo = new MutationObserver(() => compute());
+
     mo.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["class", "style"],
@@ -151,9 +159,11 @@ export const DottedGlowBackground = ({
   useEffect(() => {
     const el = canvasRef.current;
     const container = containerRef.current;
+
     if (!el || !container) return;
 
     const ctx = el.getContext("2d");
+
     if (!ctx) return;
 
     let raf = 0;
@@ -163,6 +173,7 @@ export const DottedGlowBackground = ({
 
     const resize = () => {
       const { width, height } = container.getBoundingClientRect();
+
       el.width = Math.max(1, Math.floor(width * dpr));
       el.height = Math.max(1, Math.floor(height * dpr));
       el.style.width = `${Math.floor(width)}px`;
@@ -171,6 +182,7 @@ export const DottedGlowBackground = ({
     };
 
     const ro = new ResizeObserver(resize);
+
     ro.observe(container);
     resize();
 
@@ -184,6 +196,7 @@ export const DottedGlowBackground = ({
       const rows = Math.ceil(height / gap) + 2;
       const min = Math.min(speedMin, speedMax);
       const max = Math.max(speedMin, speedMax);
+
       for (let i = -1; i < cols; i++) {
         for (let j = -1; j < rows; j++) {
           const x = i * gap + (j % 2 === 0 ? 0 : gap * 0.5); // offset every other row
@@ -192,6 +205,7 @@ export const DottedGlowBackground = ({
           const phase = Math.random() * Math.PI * 2;
           const span = Math.max(max - min, 0);
           const speed = min + Math.random() * span; // configurable rad/s
+
           dots.push({ x, y, phase, speed });
         }
       }
@@ -208,6 +222,7 @@ export const DottedGlowBackground = ({
     const draw = (now: number) => {
       if (stopped) return;
       const dt = (now - last) / 1000; // seconds
+
       last = now;
       const { width, height } = container.getBoundingClientRect();
 
@@ -224,6 +239,7 @@ export const DottedGlowBackground = ({
           height * 0.5,
           Math.max(width, height) * 0.7,
         );
+
         grad.addColorStop(0, "rgba(0,0,0,0)");
         grad.addColorStop(
           1,
@@ -238,6 +254,7 @@ export const DottedGlowBackground = ({
       ctx.fillStyle = resolvedColor;
 
       const time = (now / 1000) * Math.max(speedScale, 0);
+
       for (let i = 0; i < dots.length; i++) {
         const d = dots[i];
         // Linear triangle wave 0..1..0 for linear glow/dim
@@ -248,6 +265,7 @@ export const DottedGlowBackground = ({
         // draw glow when bright
         if (a > 0.6) {
           const glow = (a - 0.6) / 0.4; // 0..1
+
           ctx.shadowColor = resolvedGlowColor;
           ctx.shadowBlur = 6 * glow;
         } else {

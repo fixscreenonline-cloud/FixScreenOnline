@@ -7,9 +7,11 @@ export function ThreeDBackground() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
+
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
+
     if (!ctx) return;
 
     // Set canvas size
@@ -17,6 +19,7 @@ export function ThreeDBackground() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
+
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
@@ -44,6 +47,7 @@ export function ThreeDBackground() {
       // Vertical lines
       for (let x = -10; x <= 10; x++) {
         const points = [];
+
         for (let z = -10; z <= 10; z++) {
           const px = x * gridSize;
           const py = 0;
@@ -85,6 +89,7 @@ export function ThreeDBackground() {
       // Horizontal lines
       for (let z = -10; z <= 10; z++) {
         const points = [];
+
         for (let x = -10; x <= 10; x++) {
           const px = x * gridSize;
           const py = 0;
@@ -144,55 +149,72 @@ export function ThreeDBackground() {
 
 export function FloatingShapes() {
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
+    <div
+      className="fixed inset-0 overflow-hidden pointer-events-none"
+      style={{ zIndex: 0 }}
+    >
       {/* Floating geometric shapes with blur */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-3xl blur-xl animate-float" 
-           style={{ 
-             transform: "rotate3d(1, 1, 0, 45deg)",
-             animationDelay: "0s",
-             animationDuration: "8s"
-           }} />
-      
-      <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl blur-lg animate-float"
-           style={{ 
-             transform: "rotate3d(1, 0, 1, 60deg)",
-             animationDelay: "1s",
-             animationDuration: "10s"
-           }} />
-      
-      <div className="absolute bottom-32 left-1/4 w-28 h-28 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-3xl blur-xl animate-float"
-           style={{ 
-             transform: "rotate3d(0, 1, 1, 30deg)",
-             animationDelay: "2s",
-             animationDuration: "12s"
-           }} />
-      
-      <div className="absolute top-1/2 right-10 w-20 h-20 bg-gradient-to-br from-indigo-500/20 to-violet-500/20 rounded-2xl blur-lg animate-float"
-           style={{ 
-             transform: "rotate3d(1, 1, 1, 45deg)",
-             animationDelay: "1.5s",
-             animationDuration: "9s"
-           }} />
-      
-      <div className="absolute bottom-20 right-1/3 w-36 h-36 bg-gradient-to-br from-violet-500/20 to-blue-500/20 rounded-3xl blur-2xl animate-float"
-           style={{ 
-             transform: "rotate3d(1, 0, 0, 50deg)",
-             animationDelay: "0.5s",
-             animationDuration: "11s"
-           }} />
-      
+      <div
+        className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-3xl blur-xl animate-float"
+        style={{
+          transform: "rotate3d(1, 1, 0, 45deg)",
+          animationDelay: "0s",
+          animationDuration: "8s",
+        }}
+      />
+
+      <div
+        className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-2xl blur-lg animate-float"
+        style={{
+          transform: "rotate3d(1, 0, 1, 60deg)",
+          animationDelay: "1s",
+          animationDuration: "10s",
+        }}
+      />
+
+      <div
+        className="absolute bottom-32 left-1/4 w-28 h-28 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-3xl blur-xl animate-float"
+        style={{
+          transform: "rotate3d(0, 1, 1, 30deg)",
+          animationDelay: "2s",
+          animationDuration: "12s",
+        }}
+      />
+
+      <div
+        className="absolute top-1/2 right-10 w-20 h-20 bg-gradient-to-br from-indigo-500/20 to-violet-500/20 rounded-2xl blur-lg animate-float"
+        style={{
+          transform: "rotate3d(1, 1, 1, 45deg)",
+          animationDelay: "1.5s",
+          animationDuration: "9s",
+        }}
+      />
+
+      <div
+        className="absolute bottom-20 right-1/3 w-36 h-36 bg-gradient-to-br from-violet-500/20 to-blue-500/20 rounded-3xl blur-2xl animate-float"
+        style={{
+          transform: "rotate3d(1, 0, 0, 50deg)",
+          animationDelay: "0.5s",
+          animationDuration: "11s",
+        }}
+      />
+
       {/* Additional blurred orbs for hero section */}
-      <div className="absolute top-1/4 left-1/3 w-48 h-48 bg-gradient-to-br from-violet-400/15 to-purple-400/15 rounded-full blur-3xl animate-float"
-           style={{ 
-             animationDelay: "0.8s",
-             animationDuration: "15s"
-           }} />
-      
-      <div className="absolute top-1/3 right-1/4 w-40 h-40 bg-gradient-to-br from-blue-400/15 to-cyan-400/15 rounded-full blur-3xl animate-float"
-           style={{ 
-             animationDelay: "1.2s",
-             animationDuration: "13s"
-           }} />
+      <div
+        className="absolute top-1/4 left-1/3 w-48 h-48 bg-gradient-to-br from-violet-400/15 to-purple-400/15 rounded-full blur-3xl animate-float"
+        style={{
+          animationDelay: "0.8s",
+          animationDuration: "15s",
+        }}
+      />
+
+      <div
+        className="absolute top-1/3 right-1/4 w-40 h-40 bg-gradient-to-br from-blue-400/15 to-cyan-400/15 rounded-full blur-3xl animate-float"
+        style={{
+          animationDelay: "1.2s",
+          animationDuration: "13s",
+        }}
+      />
     </div>
   );
 }
