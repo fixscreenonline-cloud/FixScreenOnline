@@ -11,64 +11,73 @@ export const siteConfig = {
     },
     {
       label: "About",
-      href: "#about",
+      href: "/#about",
     },
     {
       label: "Services",
-      href: "#services",
+      href: "/#services",
+    },
+    {
+      label: "Pricing",
+      href: "/pricing",
     },
     {
       label: "Why Trust Us",
-      href: "#stats",
+      href: "/#stats",
     },
     {
       label: "Testimonials",
-      href: "#testimonials",
+      href: "/#testimonials",
+    },
+    {
+      label: "FAQs",
+      href: "/#faq",
     },
     {
       label: "Contact us",
-      href: "#contact",
+      href: "/#contact",
     },
   ],
   navMenuItems: [
     {
-      label: "Profile",
-      href: "/profile",
+      label: "Home",
+      href: "/",
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
+      label: "About",
+      href: "/#about",
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "Services",
+      href: "/#services",
     },
     {
-      label: "Team",
-      href: "/team",
+      label: "Pricing",
+      href: "/pricing",
     },
     {
-      label: "Calendar",
-      href: "/calendar",
+      label: "Testimonials",
+      href: "/#testimonials",
     },
     {
-      label: "Settings",
-      href: "/settings",
+      label: "FAQs",
+      href: "/#faq",
     },
     {
-      label: "Help & Feedback",
-      href: "/help-feedback",
+      label: "Contact Us",
+      href: "/#contact",
     },
     {
-      label: "Logout",
-      href: "/logout",
+      label: "Privacy Policy",
+      href: "/privacy",
+    },
+    {
+      label: "Terms & Conditions",
+      href: "/terms",
     },
   ],
   links: {
-    github: "https://github.com/heroui-inc/heroui",
-    twitter: "https://twitter.com/hero_ui",
-    docs: "https://heroui.com",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+    privacy: "/privacy",
+    terms: "/terms",
   },
 };

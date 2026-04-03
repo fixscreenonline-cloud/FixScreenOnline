@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { MotionValue, motion, useScroll, useTransform } from "motion/react";
+import Image from "next/image";
 import {
   IconBrightnessDown,
   IconBrightnessUp,
@@ -30,7 +31,7 @@ import { cn } from "@/lib/utils";
 export const MacbookScroll = ({
   src,
   showGradient,
-  title,
+  title: _title,
   badge,
 }: {
   src?: string;
@@ -141,10 +142,12 @@ export const Lid = ({
           }}
         >
           {src && (
-            <img
+            <Image
               alt="macOS desktop"
               className="absolute inset-0 h-full w-full rounded-lg object-fill py-1"
               src={src}
+              fill
+              sizes="512px"
             />
           )}
           {/* <div className="relative z-10">
@@ -164,10 +167,12 @@ export const Lid = ({
         }}
       >
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
-        <img
-          alt="broken screen"
+        <Image
+          alt="Broken screen display"
           className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
           src="/broken-screen.png"
+          fill
+          sizes="512px"
         />
       </motion.div>
     </div>
@@ -627,27 +632,6 @@ export const OptionKey = ({ className }: { className: string }) => {
         id="_Transparent_Rectangle_"
         stroke="none"
         width="32"
-      />
-    </svg>
-  );
-};
-
-const AceternityLogo = () => {
-  return (
-    <svg
-      className="h-3 w-3 text-white"
-      fill="none"
-      height="65"
-      viewBox="0 0 66 65"
-      width="66"
-      xmlns=""
-    >
-      <path
-        d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeMiterlimit="3.86874"
-        strokeWidth="15"
       />
     </svg>
   );

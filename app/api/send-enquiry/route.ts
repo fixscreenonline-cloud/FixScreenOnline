@@ -24,6 +24,7 @@ export async function POST(request: NextRequest) {
     const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "your-email@example.com";
 
     if (!RESEND_API_KEY) {
+      // eslint-disable-next-line no-console
       console.error("RESEND_API_KEY is not set in environment variables");
 
       return NextResponse.json(
@@ -74,6 +75,7 @@ export async function POST(request: NextRequest) {
     const data = await response.json();
 
     if (!response.ok) {
+      // eslint-disable-next-line no-console
       console.error("Resend API error:", data);
 
       return NextResponse.json(
@@ -87,6 +89,7 @@ export async function POST(request: NextRequest) {
       { status: 200 },
     );
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error("Error sending email:", error);
 
     return NextResponse.json(

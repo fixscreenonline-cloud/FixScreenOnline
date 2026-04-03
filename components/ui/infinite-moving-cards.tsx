@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 
@@ -8,7 +9,7 @@ export const InfiniteMovingCards = ({
   items,
   direction = "left",
   speed = "fast",
-  pauseOnHover = true,
+  pauseOnHover: _pauseOnHover = true,
   className,
 }: {
   items: {
@@ -89,7 +90,7 @@ export const InfiniteMovingCards = ({
           start && "animate-scroll",
         )}
       >
-        {items.map((item, idx) => (
+        {items.map((item, _idx) => (
           <li
             key={item.name}
             className="relative w-[350px] max-w-full shrink-0 rounded-2xl border border-b-0 border-zinc-200 bg-[linear-gradient(180deg,#fafafa,#f5f5f5)] px-8 py-6 md:w-[450px] dark:border-zinc-700 dark:bg-[linear-gradient(180deg,#27272a,#18181b)]"
@@ -104,10 +105,12 @@ export const InfiniteMovingCards = ({
               </span>
               <div className="relative z-20 mt-6 flex flex-row items-center gap-4">
                 {item.image && (
-                  <img
+                  <Image
                     alt={item.name}
                     className="h-12 w-12 rounded-full object-cover border-2 border-violet-500"
                     src={item.image}
+                    width={48}
+                    height={48}
                   />
                 )}
                 <span className="flex flex-col gap-1">

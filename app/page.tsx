@@ -17,6 +17,7 @@ import {
   DropdownItem,
 } from "@heroui/dropdown";
 import { useState } from "react";
+import Image from "next/image";
 import {
   MessageCircle,
   Search,
@@ -32,10 +33,53 @@ import {
   HardDrive,
   Database,
   Shield,
+  ChevronDown,
 } from "lucide-react";
+
+// Google Ads / gtag conversion helper
+function gtagEvent(eventName: string, params?: Record<string, string>) {
+  if (typeof window !== "undefined" && (window as any).gtag) {
+    (window as any).gtag("event", eventName, params);
+  }
+}
 
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+
+const faqs = [
+  {
+    q: "How long does a typical repair take?",
+    a: "Most screen replacements and battery swaps are completed within 1–3 hours while you wait. More complex repairs like motherboard or water damage may take 24–48 hours. We always give you an estimated turnaround before starting.",
+  },
+  {
+    q: "Do you use genuine Apple parts?",
+    a: "Yes. We use OEM-grade and genuine Apple parts for all repairs to ensure the same quality, fit, and feel as the original. We never compromise on parts quality.",
+  },
+  {
+    q: "Is there a warranty on repairs?",
+    a: "Absolutely. Every repair comes with a 90-day warranty covering parts and workmanship. If anything goes wrong due to our repair, we'll fix it free of charge.",
+  },
+  {
+    q: "Can you repair water-damaged iPhones or MacBooks?",
+    a: "Yes — water damage is one of our specialties. Using ultrasonic cleaning and micro-soldering techniques, we successfully restore the majority of liquid-damaged Apple devices. Bring it in as soon as possible for the best outcome.",
+  },
+  {
+    q: "Do I need to book an appointment?",
+    a: "Walk-ins are welcome! For faster service you can submit a repair request online or call ahead so we can prepare. For MacBook and iMac repairs we recommend calling first.",
+  },
+  {
+    q: "How much does a repair cost?",
+    a: "Costs vary by device and repair type. We offer a free diagnostic assessment before any work begins, so you'll know the exact cost upfront with no hidden fees.",
+  },
+  {
+    q: "What payment methods do you accept?",
+    a: "We accept cash, all major credit/debit cards, UPI, Google Pay, and PhonePe.",
+  },
+  {
+    q: "What if my device can't be repaired?",
+    a: "If a repair isn't possible, there is no diagnostic charge. We'll return your device and explain what happened honestly.",
+  },
+];
 
 const testimonials = [
   {
@@ -72,6 +116,15 @@ const devices = [
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const openBookingModal = () => {
+    setIsModalOpen(true);
+    gtagEvent("generate_lead", {
+      event_category: "engagement",
+      event_label: "book_repair_cta",
+    });
+  };
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [formData, setFormData] = useState({
@@ -96,12 +149,12 @@ export default function Home() {
     if (e) {
       e.preventDefault();
     }
-    
+
     // Validate form before submitting
     if (!isFormValid()) {
       return;
     }
-    
+
     setIsSubmitting(true);
 
     try {
@@ -115,6 +168,13 @@ export default function Home() {
 
       if (response.ok) {
         setIsSuccess(true);
+        gtagEvent("conversion", {
+          send_to: process.env.NEXT_PUBLIC_GADS_CONVERSION_LABEL || "",
+        });
+        gtagEvent("form_submit", {
+          event_category: "lead",
+          event_label: "repair_enquiry",
+        });
         setFormData({
           name: "",
           email: "",
@@ -128,6 +188,7 @@ export default function Home() {
         }, 7000);
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error("Error submitting form:", error);
     } finally {
       setIsSubmitting(false);
@@ -334,7 +395,7 @@ export default function Home() {
               <div className="flex gap-3 justify-center lg:justify-start flex-row pt-1">
                 <button
                   className="inline-flex items-center justify-center font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-gradient-to-r from-violet-600 via-purple-600 to-violet-600 text-white shadow-lg shadow-violet-500/50 hover:shadow-xl hover:shadow-violet-500/60 hover:from-violet-700 hover:via-purple-700 hover:to-violet-700 transition-all duration-200 text-sm sm:text-base lg:text-lg flex-1 sm:flex-initial"
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={openBookingModal}
                 >
                   Book Repair Now
                 </button>
@@ -403,10 +464,13 @@ export default function Home() {
 
             {/* Devices Image - Shows second on mobile */}
             <div className="flex justify-center lg:justify-end order-2 lg:order-2 mt-6 lg:mt-0">
-              <img
-                alt="Apple Devices Repair"
+              <Image
+                priority
+                alt="Apple Devices - iPhone, iPad, MacBook, iMac Repair"
                 className="w-full max-w-[350px] sm:max-w-[450px] md:max-w-[600px] lg:max-w-none lg:w-[740px] h-auto object-contain"
+                height={560}
                 src="/All_Devices.png"
+                width={740}
               />
             </div>
           </div>
@@ -435,10 +499,10 @@ export default function Home() {
               <p className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-600">
                 At Mac Repair Center, we specialize in offering top-notch repair
                 services for all Apple devices, including MacBook, iPhone, iMac,
-                iPad, and iWatch. Whether it&apos;s a cracked screen, battery issue,
-                or software trouble, we&apos;ve got you covered with expert solutions
-                and genuine parts. Trust us to restore your device to peak
-                performance.
+                iPad, and iWatch. Whether it&apos;s a cracked screen, battery
+                issue, or software trouble, we&apos;ve got you covered with
+                expert solutions and genuine parts. Trust us to restore your
+                device to peak performance.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -450,10 +514,10 @@ export default function Home() {
                     Experience You Can Count On
                   </h3>
                   <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                    With years of expertise in Apple device repairs, we&apos;ve built
-                    a reputation for reliability and quality. From simple fixes
-                    to complex hardware issues, we handle it all with precision
-                    and care.
+                    With years of expertise in Apple device repairs, we&apos;ve
+                    built a reputation for reliability and quality. From simple
+                    fixes to complex hardware issues, we handle it all with
+                    precision and care.
                   </p>
                 </div>
 
@@ -465,10 +529,10 @@ export default function Home() {
                     Quick and Reliable Support
                   </h3>
                   <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                    Facing issues with your Apple device? Don&apos;t worry we&apos;re here
-                    to help! Our team provides fast and efficient repair
-                    services to get you back on track in no time. Your
-                    satisfaction is our priority.
+                    Facing issues with your Apple device? Don&apos;t worry
+                    we&apos;re here to help! Our team provides fast and
+                    efficient repair services to get you back on track in no
+                    time. Your satisfaction is our priority.
                   </p>
                 </div>
               </div>
@@ -897,6 +961,52 @@ export default function Home() {
           />
         </div>
 
+        {/* FAQ Section */}
+        <div
+          className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 mt-8 sm:mt-12 md:mt-16 scroll-mt-24 relative"
+          id="faq"
+        >
+          <div className="absolute top-0 left-1/4 w-80 h-80 bg-gradient-to-br from-violet-400/15 to-purple-400/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="text-center mb-6 sm:mb-10">
+            <p className="text-violet-600 font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2">
+              Got Questions?
+            </p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-sm sm:text-base text-gray-500 max-w-xl mx-auto">
+              Everything you need to know before booking your repair
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto space-y-3 relative z-10">
+            {faqs.map((faq, i) => (
+              <div
+                key={i}
+                className="border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow duration-200"
+              >
+                <button
+                  aria-expanded={openFaq === i}
+                  className="w-full flex items-center justify-between px-5 py-4 text-left"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                >
+                  <span className="font-semibold text-gray-900 text-sm sm:text-base pr-4">
+                    {faq.q}
+                  </span>
+                  <ChevronDown
+                    className={`h-5 w-5 text-violet-500 flex-shrink-0 transition-transform duration-200 ${openFaq === i ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {openFaq === i && (
+                  <div className="px-5 pb-4 text-sm sm:text-base text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Call to Action */}
         <div
           className="w-full max-w-[1400px] mx-auto mt-8 sm:mt-12 md:mt-16 mb-8 sm:mb-12 md:mb-16 scroll-mt-24 relative px-4 sm:px-6"
@@ -966,6 +1076,126 @@ export default function Home() {
         </div>
       </div>
       {/* End of background wrapper */}
+
+      {/* Site Footer */}
+      <footer className="w-full bg-gray-50 border-t border-gray-200 mt-0">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
+            <div>
+              <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">
+                Apple Repair Pro
+              </h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                Certified Apple device repair — iPhone, iPad, MacBook & iMac.
+                <br />
+                Genuine parts. 90-day warranty. Same-day service.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">
+                Quick Links
+              </h3>
+              <ul className="space-y-1.5 text-sm text-gray-500">
+                <li>
+                  <Link
+                    className="hover:text-violet-600 transition-colors"
+                    href="/#services"
+                  >
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:text-violet-600 transition-colors"
+                    href="/pricing"
+                  >
+                    Pricing
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:text-violet-600 transition-colors"
+                    href="/#faq"
+                  >
+                    FAQs
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:text-violet-600 transition-colors"
+                    href="/#testimonials"
+                  >
+                    Reviews
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">
+                Legal
+              </h3>
+              <ul className="space-y-1.5 text-sm text-gray-500">
+                <li>
+                  <Link
+                    className="hover:text-violet-600 transition-colors"
+                    href="/privacy"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:text-violet-600 transition-colors"
+                    href="/terms"
+                  >
+                    Terms &amp; Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:text-violet-600 transition-colors"
+                    href="/#contact"
+                  >
+                    Contact Us
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-200 pt-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-400">
+            <p>
+              &copy; {new Date().getFullYear()} Apple Repair Pro. All rights
+              reserved.
+            </p>
+            <p>Not affiliated with Apple Inc.</p>
+          </div>
+        </div>
+      </footer>
+
+      {/* Sticky Mobile CTA Bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-white border-t border-gray-200 shadow-2xl px-4 py-3 flex gap-3">
+        <button
+          className="flex-1 inline-flex items-center justify-center font-bold px-4 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 text-white text-sm shadow-md"
+          onClick={openBookingModal}
+        >
+          Book Repair Now
+        </button>
+        <a
+          className="flex-1 inline-flex items-center justify-center font-bold px-4 py-3 rounded-xl border-2 border-violet-600 text-violet-600 text-sm"
+          href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+917700044192"}`}
+        >
+          <svg
+            className="w-4 h-4 mr-1.5"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
+          </svg>
+          Call Now
+        </a>
+      </div>
+      {/* Bottom padding for sticky bar on mobile */}
+      <div className="h-20 lg:hidden" />
 
       {/* Enquiry Modal */}
       <Modal

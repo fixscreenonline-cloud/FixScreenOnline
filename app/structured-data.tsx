@@ -162,6 +162,106 @@ export function generateStructuredData() {
         name: "Home",
         item: siteUrl,
       },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Pricing",
+        item: `${siteUrl}/pricing`,
+      },
+    ],
+  };
+
+  // AggregateRating Schema — enables star ratings in Google search results
+  const ratingSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${siteUrl}/#organization`,
+    name: businessName,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "247",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    review: [
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Arjun" },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody:
+          "I was amazed by the quick and efficient service for my water-damaged MacBook. The team restored it to perfect working condition, saving me from buying a new one. Highly recommended!",
+      },
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Priya" },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody:
+          "My iMac had storage issues, and the upgrade service was flawless. The team explained everything clearly, and now my device runs faster than ever.",
+      },
+      {
+        "@type": "Review",
+        author: { "@type": "Person", name: "Rajesh" },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody:
+          "The team successfully removed the MDM lock on my MacBook Pro. I was impressed by their professionalism and the secure handling of my device.",
+      },
+    ],
+  };
+
+  // FAQ Schema — enables FAQ rich results in Google search
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "How long does a typical Apple device repair take?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Most screen replacements and battery swaps are completed within 1–3 hours while you wait. More complex repairs like motherboard or water damage may take 24–48 hours.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do you use genuine Apple parts?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. We use OEM-grade and genuine Apple parts for all repairs to ensure the same quality, fit, and feel as the original.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is there a warranty on Apple device repairs?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Every repair comes with a 90-day warranty covering parts and workmanship. If anything goes wrong due to our repair, we'll fix it free of charge.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can you repair water-damaged iPhones or MacBooks?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes — water damage is one of our specialties. Using ultrasonic cleaning and micro-soldering techniques, we successfully restore the majority of liquid-damaged Apple devices.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is the cost of Apple device repair?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Costs vary by device and repair type. We offer a free diagnostic assessment before any work begins, so you'll know the exact cost upfront with no hidden fees.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do I need to book an appointment for repair?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Walk-ins are welcome! For faster service you can submit a repair request online or call ahead. For MacBook and iMac repairs we recommend calling first.",
+        },
+      },
     ],
   };
 
@@ -170,12 +270,20 @@ export function generateStructuredData() {
     websiteSchema,
     serviceSchema,
     breadcrumbSchema,
+    ratingSchema,
+    faqSchema,
   };
 }
 
 export function StructuredData() {
-  const { organizationSchema, websiteSchema, serviceSchema, breadcrumbSchema } =
-    generateStructuredData();
+  const {
+    organizationSchema,
+    websiteSchema,
+    serviceSchema,
+    breadcrumbSchema,
+    ratingSchema,
+    faqSchema,
+  } = generateStructuredData();
 
   return (
     <>
@@ -193,6 +301,14 @@ export function StructuredData() {
       />
       <script
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        type="application/ld+json"
+      />
+      <script
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }}
+        type="application/ld+json"
+      />
+      <script
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         type="application/ld+json"
       />
     </>
