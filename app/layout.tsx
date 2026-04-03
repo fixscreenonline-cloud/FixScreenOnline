@@ -14,7 +14,7 @@ import { ScrollToHash } from "@/components/scroll-to-hash";
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 const GA_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://applerepairpro.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.fixmydevicenyc.com";
 const BUSINESS_CITY = process.env.NEXT_PUBLIC_BUSINESS_CITY || "Hicksville";
 const BUSINESS_STATE = process.env.NEXT_PUBLIC_BUSINESS_STATE || "NY";
 const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
