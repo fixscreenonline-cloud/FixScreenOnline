@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://applerepairpro.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.fixmydevicenyc.com";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Apple Repair Pro",
+  title: "Privacy Policy | FixMyDevice NYC",
   description:
-    "Read our privacy policy to understand how Apple Repair Pro collects, uses, and protects your personal information.",
+    "Read our privacy policy to understand how FixMyDevice NYC collects, uses, and protects your personal information.",
   alternates: { canonical: `${SITE_URL}/privacy` },
   robots: { index: false, follow: false },
 };
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   const lastUpdated = "April 3, 2026";
   const businessName =
-    process.env.NEXT_PUBLIC_BUSINESS_NAME || "Apple Repair Pro";
+    process.env.NEXT_PUBLIC_BUSINESS_NAME || "FixMyDevice NYC";
   const businessEmail =
     process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "contact@example.com";
 

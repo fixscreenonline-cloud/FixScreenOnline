@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Apple Device Repair – Same Day Service | Apple Repair Pro",
+  title: "Independent iPhone & MacBook Repair – Same Day Service | FixMyDevice NYC",
   description:
-    "Broken iPhone, cracked MacBook screen, or water damage? Get it fixed today. Certified technicians. Free diagnostics. 90-day warranty. Book now.",
+    "Cracked screen, battery issue, or water damage? Our professional technicians repair iPhones, MacBooks, iPads & iMacs — same day in New York. Request a free quote.",
   robots: { index: false, follow: false }, // Keep Ads LP off organic index
 };
 

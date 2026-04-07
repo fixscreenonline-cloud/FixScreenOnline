@@ -38,22 +38,22 @@ const trustPoints = [
 
 const reviews = [
   {
-    name: "Arjun M.",
+    name: "James R.",
     rating: 5,
     text: "My water-damaged MacBook was restored perfectly. Saved me from buying a new one. Incredible service!",
-    device: "MacBook Pro",
+    device: "MacBook Pro — Brooklyn, NY",
   },
   {
-    name: "Priya K.",
+    name: "Sarah M.",
     rating: 5,
-    text: "Screen replaced in under 2 hours. Looks brand new. Very professional team.",
-    device: "iPhone 14 Pro",
+    text: "Screen replaced in under 2 hours. Looks brand new. Very professional technicians.",
+    device: "iPhone 14 Pro — Manhattan, NY",
   },
   {
-    name: "Rajesh S.",
+    name: "David L.",
     rating: 5,
-    text: "MDM lock removed professionally. Fast and secure. Highly recommended.",
-    device: "MacBook Air M2",
+    text: "Battery replaced quickly and at a fair price. My iPhone lasts all day again. Highly recommend!",
+    device: "iPhone 13 — Queens, NY",
   },
 ];
 
@@ -111,12 +111,12 @@ export default function LandingPage() {
               <Wrench className="w-4 h-4 text-white" />
             </div>
             <span className="font-bold text-gray-900 text-sm sm:text-base">
-              Apple Repair Pro
+              FixMyDevice NYC
             </span>
           </div>
           <a
             className="inline-flex items-center gap-1.5 font-bold px-4 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 text-white text-sm shadow-md"
-            href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+917700044192"}`}
+            href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-555-123-4567"}`}
             onClick={() =>
               gtagEvent("phone_call_click", { event_category: "lead" })
             }
@@ -139,16 +139,16 @@ export default function LandingPage() {
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-                Get Your Apple Device
+                Independent Repair Services
                 <span className="block bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-purple-600">
-                  Fixed Today
+                  iPhone, iPad & MacBook
                 </span>
               </h1>
 
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-                Cracked screen? Dead battery? Water damage? Our certified
+                Cracked screen? Dead battery? Water damage? Our professional
                 technicians repair iPhones, MacBooks, iPads, and iMacs —{" "}
-                <strong>usually within hours</strong>, using genuine parts.
+                <strong>usually within hours</strong>, using quality parts.
               </p>
 
               {/* Trust pills */}
@@ -173,13 +173,13 @@ export default function LandingPage() {
                 </a>
                 <a
                   className="flex-1 inline-flex items-center justify-center gap-2 font-bold px-6 py-3.5 rounded-xl border-2 border-violet-600 text-violet-600"
-                  href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+917700044192"}`}
+                  href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-555-123-4567"}`}
                   onClick={() =>
                     gtagEvent("phone_call_click", { event_category: "lead" })
                   }
                 >
                   <Phone className="w-4 h-4" />
-                  Call Now
+                  Request Callback
                 </a>
               </div>
             </div>
@@ -200,7 +200,7 @@ export default function LandingPage() {
                   </p>
                   <a
                     className="inline-flex items-center gap-2 font-bold px-6 py-3 rounded-xl bg-violet-600 text-white"
-                    href={`https://wa.me/${(process.env.NEXT_PUBLIC_BUSINESS_PHONE || "917700044192").replace(/[^0-9]/g, "")}`}
+                    href={`https://wa.me/${(process.env.NEXT_PUBLIC_BUSINESS_PHONE || "15551234567").replace(/[^0-9]/g, "")}`}
                   >
                     <MessageCircle className="w-4 h-4" />
                     Chat on WhatsApp
@@ -380,13 +380,13 @@ export default function LandingPage() {
         </a>
         <a
           className="flex-1 inline-flex items-center justify-center font-bold py-3 rounded-xl border-2 border-violet-600 text-violet-600 text-sm"
-          href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+917700044192"}`}
+          href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-555-123-4567"}`}
           onClick={() =>
             gtagEvent("phone_call_click", { event_category: "lead" })
           }
         >
           <Phone className="w-4 h-4 mr-1.5" />
-          Call Now
+          Request Callback
         </a>
       </div>
       <div className="h-20 lg:hidden" />
@@ -394,9 +394,7 @@ export default function LandingPage() {
       {/* Minimal Footer */}
       <footer className="bg-gray-50 border-t border-gray-200 text-center py-6 px-4">
         <p className="text-xs text-gray-400">
-          © {new Date().getFullYear()} Apple Repair Pro · Not affiliated with
-          Apple Inc. ·{" "}
-          <a className="hover:text-violet-600" href="/privacy">
+          © {new Date().getFullYear()} FixMyDevice NYC · We are an independent repair service provider and not affiliated, authorized, or endorsed by Apple Inc. ·{" "}          <a className="hover:text-violet-600" href="/privacy">
             Privacy
           </a>{" "}
           ·{" "}

@@ -13,12 +13,12 @@ const pricingData = [
     accent: "text-blue-600",
     badge: "bg-blue-100 text-blue-700",
     repairs: [
-      { name: "Screen Replacement", price: "From ₹2,499", time: "1–2 hrs" },
-      { name: "Battery Replacement", price: "From ₹1,299", time: "30 mins" },
-      { name: "Charging Port Repair", price: "From ₹999", time: "1 hr" },
-      { name: "Back Glass Repair", price: "From ₹1,799", time: "2 hrs" },
-      { name: "Camera Repair", price: "From ₹1,999", time: "1–2 hrs" },
-      { name: "Water Damage", price: "From ₹2,999", time: "24 hrs" },
+      { name: "Screen Replacement", price: "From $79", time: "1–2 hrs" },
+      { name: "Battery Replacement", price: "From $49", time: "30 mins" },
+      { name: "Charging Port Repair", price: "From $39", time: "1 hr" },
+      { name: "Back Glass Repair", price: "From $69", time: "2 hrs" },
+      { name: "Camera Repair", price: "From $79", time: "1–2 hrs" },
+      { name: "Water Damage", price: "From $99", time: "24 hrs" },
     ],
   },
   {
@@ -29,12 +29,12 @@ const pricingData = [
     accent: "text-violet-600",
     badge: "bg-violet-100 text-violet-700",
     repairs: [
-      { name: "Screen Replacement", price: "From ₹8,999", time: "2–4 hrs" },
-      { name: "Battery Replacement", price: "From ₹5,499", time: "1–2 hrs" },
-      { name: "Keyboard Replacement", price: "From ₹3,999", time: "2 hrs" },
-      { name: "Motherboard Repair", price: "From ₹6,999", time: "24–48 hrs" },
-      { name: "Storage Upgrade (SSD)", price: "From ₹4,999", time: "2 hrs" },
-      { name: "Water Damage Repair", price: "From ₹5,999", time: "24–48 hrs" },
+      { name: "Screen Replacement", price: "From $299", time: "2–4 hrs" },
+      { name: "Battery Replacement", price: "From $189", time: "1–2 hrs" },
+      { name: "Keyboard Replacement", price: "From $149", time: "2 hrs" },
+      { name: "Motherboard Repair", price: "From $249", time: "24–48 hrs" },
+      { name: "Storage Upgrade (SSD)", price: "From $179", time: "2 hrs" },
+      { name: "Water Damage Repair", price: "From $199", time: "24–48 hrs" },
     ],
   },
   {
@@ -45,12 +45,12 @@ const pricingData = [
     accent: "text-green-600",
     badge: "bg-green-100 text-green-700",
     repairs: [
-      { name: "Screen Replacement", price: "From ₹3,999", time: "2–3 hrs" },
-      { name: "Battery Replacement", price: "From ₹2,499", time: "1–2 hrs" },
-      { name: "Charging Port Repair", price: "From ₹1,299", time: "1 hr" },
-      { name: "Home Button Repair", price: "From ₹999", time: "1 hr" },
-      { name: "Camera Repair", price: "From ₹2,299", time: "2 hrs" },
-      { name: "Water Damage", price: "From ₹3,499", time: "24 hrs" },
+      { name: "Screen Replacement", price: "From $129", time: "2–3 hrs" },
+      { name: "Battery Replacement", price: "From $89", time: "1–2 hrs" },
+      { name: "Charging Port Repair", price: "From $49", time: "1 hr" },
+      { name: "Home Button Repair", price: "From $39", time: "1 hr" },
+      { name: "Camera Repair", price: "From $79", time: "2 hrs" },
+      { name: "Water Damage", price: "From $109", time: "24 hrs" },
     ],
   },
   {
@@ -61,12 +61,12 @@ const pricingData = [
     accent: "text-amber-600",
     badge: "bg-amber-100 text-amber-700",
     repairs: [
-      { name: "Screen Replacement", price: "From ₹12,999", time: "3–5 hrs" },
-      { name: "RAM Upgrade", price: "From ₹2,999", time: "1–2 hrs" },
-      { name: "Storage Upgrade (SSD)", price: "From ₹5,999", time: "2–3 hrs" },
-      { name: "GPU Repair", price: "From ₹8,999", time: "24–48 hrs" },
-      { name: "Motherboard Repair", price: "From ₹9,999", time: "48 hrs" },
-      { name: "Water Damage", price: "From ₹7,999", time: "24–48 hrs" },
+      { name: "Screen Replacement", price: "From $399", time: "3–5 hrs" },
+      { name: "RAM Upgrade", price: "From $99", time: "1–2 hrs" },
+      { name: "Storage Upgrade (SSD)", price: "From $199", time: "2–3 hrs" },
+      { name: "GPU Repair", price: "From $299", time: "24–48 hrs" },
+      { name: "Motherboard Repair", price: "From $349", time: "48 hrs" },
+      { name: "Water Damage", price: "From $249", time: "24–48 hrs" },
     ],
   },
 ];
@@ -92,7 +92,7 @@ export default function PricingPage() {
           Transparent & Affordable
         </p>
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Honest Repair Pricing
+          Transparent Repair Pricing
         </h1>
         <p className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto mb-6">
           No hidden charges. Free diagnostics. All prices start from — final
@@ -200,9 +200,9 @@ export default function PricingPage() {
             </Link>
             <a
               className="inline-flex items-center justify-center font-bold px-8 py-3.5 rounded-xl border-2 border-violet-600 text-violet-600 hover:bg-violet-50 transition-all"
-              href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+917700044192"}`}
+              href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-555-123-4567"}`}
             >
-              Call Us Now
+              Request Callback
             </a>
           </div>
         </div>

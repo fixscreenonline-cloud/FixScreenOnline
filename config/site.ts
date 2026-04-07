@@ -1,9 +1,9 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Apple Repair Pro",
+  name: "FixMyDevice NYC",
   description:
-    "Expert Apple device repair services. Fast, reliable, and affordable repairs for iPhone, iPad, Mac, and more.",
+    "Independent repair services for iPhone, iPad, MacBook & iMac in New York. Professional technicians, quality parts, 90-day warranty.",
   navItems: [
     {
       label: "Home",

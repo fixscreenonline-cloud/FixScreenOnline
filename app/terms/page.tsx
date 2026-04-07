@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://applerepairpro.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.fixmydevicenyc.com";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Apple Repair Pro",
+  title: "Terms & Conditions | FixMyDevice NYC",
   description:
-    "Read our Terms & Conditions before using Apple Repair Pro's repair services.",
+    "Read our Terms & Conditions before using FixMyDevice NYC's repair services.",
   alternates: { canonical: `${SITE_URL}/terms` },
   robots: { index: false, follow: false },
 };
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   const lastUpdated = "April 3, 2026";
   const businessName =
-    process.env.NEXT_PUBLIC_BUSINESS_NAME || "Apple Repair Pro";
+    process.env.NEXT_PUBLIC_BUSINESS_NAME || "FixMyDevice NYC";
   const businessEmail =
     process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "contact@example.com";
 

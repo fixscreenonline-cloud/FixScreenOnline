@@ -60,7 +60,7 @@ export const Navbar = () => {
           >
             <Logo />
             <p className="font-bold text-lg sm:text-xl text-gray-900">
-              Apple Repair Pro
+              FixMyDevice NYC
             </p>
           </NextLink>
         </NavbarBrand>

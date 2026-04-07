@@ -1,7 +1,7 @@
 {
-  "name": "Apple Repair Pro",
-  "short_name": "Apple Repair",
-  "description": "Expert Apple device repair services",
+  "name": "FixMyDevice NYC",
+  "short_name": "FixMyDevice",
+  "description": "Independent iPhone, iPad & MacBook repair services in New York",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

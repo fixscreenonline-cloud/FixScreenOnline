@@ -1,7 +1,7 @@
 export function generateStructuredData() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://your-domain.com";
   const businessName =
-    process.env.NEXT_PUBLIC_BUSINESS_NAME || "Apple Repair Pro";
+    process.env.NEXT_PUBLIC_BUSINESS_NAME || "FixMyDevice NYC";
   const businessEmail =
     process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "contact@example.com";
   const businessPhone =
@@ -26,7 +26,7 @@ export function generateStructuredData() {
     logo: `${siteUrl}/logo.png`,
     image: `${siteUrl}/og-image.png`,
     description:
-      "Expert Apple device repair services with certified technicians. Same-day repairs available.",
+      "Independent device repair service for iPhone, iPad, MacBook & iMac with experienced technicians. Same-day repairs available.",
     telephone: businessPhone,
     email: businessEmail,
     address: {
@@ -187,24 +187,24 @@ export function generateStructuredData() {
     review: [
       {
         "@type": "Review",
-        author: { "@type": "Person", name: "Arjun" },
+        author: { "@type": "Person", name: "James R." },
         reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
         reviewBody:
-          "I was amazed by the quick and efficient service for my water-damaged MacBook. The team restored it to perfect working condition, saving me from buying a new one. Highly recommended!",
+          "I was amazed by the quick service for my water-damaged MacBook. The technician restored it to perfect working condition. Highly recommended!",
       },
       {
         "@type": "Review",
-        author: { "@type": "Person", name: "Priya" },
+        author: { "@type": "Person", name: "Sarah M." },
         reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
         reviewBody:
-          "My iMac had storage issues, and the upgrade service was flawless. The team explained everything clearly, and now my device runs faster than ever.",
+          "My iMac had storage issues, and the upgrade service was flawless. Everything was explained clearly, and now my device runs faster than ever.",
       },
       {
         "@type": "Review",
-        author: { "@type": "Person", name: "Rajesh" },
+        author: { "@type": "Person", name: "Michael T." },
         reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
         reviewBody:
-          "The team successfully removed the MDM lock on my MacBook Pro. I was impressed by their professionalism and the secure handling of my device.",
+          "Had my iPhone screen replaced in under 2 hours. The repair looks perfect and the pricing was completely transparent.",
       },
     ],
   };

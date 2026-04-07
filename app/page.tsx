@@ -27,12 +27,10 @@ import {
   FlaskConical,
   Package,
   Headphones,
-  Unlock,
   Droplet,
   Cpu,
   HardDrive,
   Database,
-  Shield,
   ChevronDown,
 } from "lucide-react";
 
@@ -65,7 +63,7 @@ const faqs = [
   },
   {
     q: "Do I need to book an appointment?",
-    a: "Walk-ins are welcome! For faster service you can submit a repair request online or call ahead so we can prepare. For MacBook and iMac repairs we recommend calling first.",
+    a: "Walk-ins are welcome! For faster service you can submit a repair request online so we can prepare. For MacBook and iMac repairs we recommend scheduling in advance.",
   },
   {
     q: "How much does a repair cost?",
@@ -84,24 +82,38 @@ const faqs = [
 const testimonials = [
   {
     quote:
-      "I was amazed by the quick and efficient service for my water-damaged MacBook. The team restored it to perfect working condition, saving me from buying a new one. Highly recommended!",
-    name: "Arjun",
-    title: "Freelance Photographer",
+      "I was amazed by the quick and efficient service for my water-damaged MacBook. The technician restored it to perfect working condition, saving me from buying a new one. Highly recommended!",
+    name: "James R.",
+    title: "Brooklyn, NY",
     image: "https://i.ibb.co/r4g9Hbv/oie-v-KM22z-HFO6-SM-1-2.png",
   },
   {
     quote:
-      "My iMac had storage issues, and the upgrade service was flawless. The team explained everything clearly, and now my device runs faster than ever. A fantastic experience!",
-    name: "Priya",
-    title: "Graphic Designer",
+      "My iMac had storage issues, and the upgrade service was flawless. Everything was explained clearly, and now my device runs faster than ever. A fantastic experience!",
+    name: "Sarah M.",
+    title: "Manhattan, NY",
     image: "https://i.ibb.co/dP2jN76/oie-v-KM22z-HFO6-SM-1-1.png",
   },
   {
     quote:
-      "The team successfully removed the MDM lock on my MacBook Pro. I was impressed by their professionalism and the secure handling of my device. Exceptional service!",
-    name: "Rajesh",
-    title: "App Developer",
+      "Had my iPhone screen replaced in under 2 hours. The repair looks perfect and the pricing was transparent with no hidden fees. Will definitely be back!",
+    name: "Michael T.",
+    title: "Queens, NY",
     image: "https://i.ibb.co/bW0MNGF/oie-v-KM22z-HFO6-SM-1-3.png",
+  },
+  {
+    quote:
+      "MacBook battery was draining in 2 hours — they replaced it same day. The technician was knowledgeable and the 90-day warranty gives real peace of mind.",
+    name: "Emily W.",
+    title: "Staten Island, NY",
+    image: "https://i.ibb.co/r4g9Hbv/oie-v-KM22z-HFO6-SM-1-2.png",
+  },
+  {
+    quote:
+      "Dropped my iPad and shattered the screen. Brought it in, they gave me an upfront quote, and it was ready the same afternoon. Excellent service!",
+    name: "Carlos D.",
+    title: "The Bronx, NY",
+    image: "https://i.ibb.co/dP2jN76/oie-v-KM22z-HFO6-SM-1-1.png",
   },
 ];
 
@@ -378,17 +390,17 @@ export default function Home() {
             <div className="text-center lg:text-left space-y-3 sm:space-y-5 order-1 lg:order-1">
               <div className="space-y-2">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                  <span className="text-gray-900">Expert </span>
+                  <span className="text-gray-900">Independent </span>
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-purple-600">
-                    Apple Device{" "}
+                    Repair Services{" "}
                   </span>
                   <br />
-                  <span className="text-gray-900">Repair Services</span>
+                  <span className="text-gray-900">for iPhone, iPad & MacBook</span>
                 </h1>
               </div>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed px-2 sm:px-0">
-                Professional repairs for MacBook, iPhone, iPad, iMac & iWatch.
-                Same-day service with genuine parts and expert care you can
+                Professional repairs for iPhone, iPad, MacBook & iMac in New York.
+                Same-day service with quality parts and experienced technicians you can
                 trust.
               </p>
 
@@ -397,7 +409,7 @@ export default function Home() {
                   className="inline-flex items-center justify-center font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-gradient-to-r from-violet-600 via-purple-600 to-violet-600 text-white shadow-lg shadow-violet-500/50 hover:shadow-xl hover:shadow-violet-500/60 hover:from-violet-700 hover:via-purple-700 hover:to-violet-700 transition-all duration-200 text-sm sm:text-base lg:text-lg flex-1 sm:flex-initial"
                   onClick={openBookingModal}
                 >
-                  Book Repair Now
+                  Request a Repair Quote
                 </button>
 
                 <Link
@@ -411,7 +423,7 @@ export default function Home() {
                   >
                     <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
                   </svg>
-                  Call Now
+                  Request Callback
                 </Link>
               </div>
 
@@ -429,7 +441,7 @@ export default function Home() {
                       fillRule="evenodd"
                     />
                   </svg>
-                  <span className="font-medium">10+ Years Experience</span>
+                  <span className="font-medium">7+ Years Experience</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <svg
@@ -443,7 +455,7 @@ export default function Home() {
                       fillRule="evenodd"
                     />
                   </svg>
-                  <span className="font-medium">4500+ Repairs Done</span>
+                  <span className="font-medium">4,500+ Devices Repaired</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <svg
@@ -487,7 +499,7 @@ export default function Home() {
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl pointer-events-none" />
           <div className="text-center mb-6 sm:mb-8 md:mb-10">
             <p className="text-violet-600 font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2">
-              We have 5+ years of experience
+              7+ years of hands-on repair experience
             </p>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4">
               Right Partner for your Device Repairs
@@ -497,12 +509,11 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             <div className="lg:col-span-2 space-y-4 sm:space-y-5">
               <p className="text-sm sm:text-base md:text-lg leading-relaxed text-gray-600">
-                At Mac Repair Center, we specialize in offering top-notch repair
-                services for all Apple devices, including MacBook, iPhone, iMac,
-                iPad, and iWatch. Whether it&apos;s a cracked screen, battery
-                issue, or software trouble, we&apos;ve got you covered with
-                expert solutions and genuine parts. Trust us to restore your
-                device to peak performance.
+                At FixMyDevice NYC, we specialize in offering professional repair
+                services for iPhone, iPad, MacBook, iMac, and Apple Watch. Whether
+                it&apos;s a cracked screen, battery issue, or software trouble,
+                we&apos;ve got you covered with experienced technicians and quality
+                parts. We&apos;re committed to restoring your device to peak performance.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -526,13 +537,13 @@ export default function Home() {
                     <Headphones className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
                   </div>
                   <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 text-gray-900">
-                    Quick and Reliable Support
+                    Reliable Technician Service
                   </h3>
                   <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-                    Facing issues with your Apple device? Don&apos;t worry
-                    we&apos;re here to help! Our team provides fast and
-                    efficient repair services to get you back on track in no
-                    time. Your satisfaction is our priority.
+                    Facing issues with your device? Our team provides fast and
+                    professional repair services to get you back on track. Clear
+                    pricing, quality parts, and transparent communication from
+                    start to finish.
                   </p>
                 </div>
               </div>
@@ -541,10 +552,10 @@ export default function Home() {
             <div className="flex items-center justify-center mt-6 lg:mt-0">
               <div className="text-center p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-violet-600 to-purple-600 text-white shadow-xl shadow-violet-500/20 w-full max-w-xs">
                 <div className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2 sm:mb-3">
-                  4.5k
+                  4,500+
                 </div>
                 <p className="text-base sm:text-lg md:text-xl font-medium">
-                  Satisfied Clients
+                  Devices Repaired
                 </p>
               </div>
             </div>
@@ -572,19 +583,6 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            <div className="group p-4 sm:p-6 rounded-2xl border border-violet-200 bg-gradient-to-br from-violet-50 to-purple-50">
-              <div className="w-fit rounded-lg border border-violet-200 bg-white p-2 sm:p-3 mb-3 sm:mb-4">
-                <Unlock className="h-5 w-5 sm:h-6 sm:w-6 text-violet-600" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-900">
-                Activation Unlock
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600">
-                Secure and seamless access to your Apple device with our
-                specialized unlock services.
-              </p>
-            </div>
-
             <div className="group p-4 sm:p-6 rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50 to-cyan-50">
               <div className="w-fit rounded-lg border border-blue-200 bg-white p-2 sm:p-3 mb-3 sm:mb-4">
                 <Droplet className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
@@ -632,21 +630,8 @@ export default function Home() {
                 Data Recovery
               </h3>
               <p className="text-sm sm:text-base text-gray-600">
-                Recover critical data from your MacBook with our reliable
+                Recover critical data from your MacBook or iPhone with our reliable
                 recovery services.
-              </p>
-            </div>
-
-            <div className="group p-4 sm:p-6 rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-50 to-purple-50">
-              <div className="w-fit rounded-lg border border-indigo-200 bg-white p-2 sm:p-3 mb-3 sm:mb-4">
-                <Shield className="h-5 w-5 sm:h-6 sm:w-6 text-indigo-600" />
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-900">
-                MDM Lock Removal
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600">
-                Unlock MDM locks for T2 and M1/M2/M3 models with secure
-                solutions.
               </p>
             </div>
           </div>
@@ -667,17 +652,12 @@ export default function Home() {
               Our Success in Numbers
             </h2>
             <p className="text-xs sm:text-sm md:text-base text-default-600 max-w-4xl mx-auto">
-              At Mac Repair Center, we take pride in our journey of delivering
-              high-quality repairs for Apple devices. Over the years, we&apos;ve
-              successfully repaired thousands of MacBooks, iPhones, iPads, and
-              other Apple devices, earning the trust of over 240 satisfied
-              clients. With more than 6,500 issues resolved, our expertise in
-              solving complex device problems and using only genuine parts has
-              made us a leader in the industry. We are committed to providing
-              fast, reliable, and efficient service, helping our customers get
-              their devices back in perfect working condition. Our success is
-              built on precision, care, and a passion for restoring the best in
-              technology.
+              At FixMyDevice NYC, we take pride in delivering professional repair
+              services for iPhone, iPad, MacBook, and iMac. We have successfully
+              repaired thousands of devices and earned the trust of hundreds of
+              satisfied customers across New York. Our focus on quality parts,
+              transparent pricing, and reliable workmanship makes us a trusted
+              choice for device repairs in the area.
             </p>
           </div>
 
@@ -685,7 +665,7 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
               <div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-violet-500">
-                  4205+
+                  4,500+
                 </h3>
                 <p className="text-xs sm:text-sm md:text-base text-default-600 mt-1 sm:mt-2">
                   Devices Repaired
@@ -693,26 +673,26 @@ export default function Home() {
               </div>
               <div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-violet-500">
-                  245+
+                  500+
                 </h3>
                 <p className="text-xs sm:text-sm md:text-base text-default-600 mt-1 sm:mt-2">
-                  Happy Clients
+                  Happy Customers
                 </p>
               </div>
               <div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-violet-500">
-                  3550+
+                  7+
                 </h3>
                 <p className="text-xs sm:text-sm md:text-base text-default-600 mt-1 sm:mt-2">
-                  Repairs Completed
+                  Years Experience
                 </p>
               </div>
               <div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-violet-500">
-                  6545+
+                  90 Days
                 </h3>
                 <p className="text-xs sm:text-sm md:text-base text-default-600 mt-1 sm:mt-2">
-                  Issues Resolved
+                  Repair Warranty
                 </p>
               </div>
             </div>
@@ -924,10 +904,10 @@ export default function Home() {
                   </div>
                   <div className="space-y-3">
                     <h3 className="font-sans text-xl font-semibold md:text-2xl">
-                      Support
+                      Follow-Up
                     </h3>
                     <p className="font-sans text-sm text-default-600 md:text-base">
-                      Ongoing assistance after service
+                      Post-repair check-in and warranty coverage
                     </p>
                   </div>
                 </div>
@@ -1029,13 +1009,13 @@ export default function Home() {
                 Ready to Restore Your Device?
               </h2>
               <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto opacity-95">
-                Contact us 24/7 for fast and reliable Apple device repairs with
-                genuine parts
+                Reach out any time for professional iPhone, iPad, MacBook & iMac
+                repair with quality parts and a 90-day warranty
               </p>
               <div className="flex gap-3 sm:gap-4 justify-center flex-wrap">
                 <Link
                   className="inline-flex items-center justify-center font-bold px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-white text-violet-600 shadow-xl text-sm sm:text-base"
-                  href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+917700044192"}`}
+                  href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-555-123-4567"}`}
                 >
                   <svg
                     className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
@@ -1051,15 +1031,15 @@ export default function Home() {
                     />
                   </svg>
                   <span className="hidden sm:inline">
-                    Call{" "}
+                    Request Callback:{" "}
                     {process.env.NEXT_PUBLIC_BUSINESS_PHONE ||
-                      "+91-77000-44192"}
+                      "+1-555-123-4567"}
                   </span>
-                  <span className="sm:hidden">Call Now</span>
+                  <span className="sm:hidden">Request Callback</span>
                 </Link>
                 <Link
                   className="inline-flex items-center justify-center font-bold px-6 py-3 sm:px-8 sm:py-4 rounded-full border-2 border-white text-white text-sm sm:text-base"
-                  href={`https://wa.me/${(process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+917700044192").replace(/[^0-9]/g, "")}`}
+                  href={`https://wa.me/${(process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+15551234567").replace(/[^0-9]/g, "")}`}
                 >
                   <svg
                     className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
@@ -1080,16 +1060,48 @@ export default function Home() {
       {/* Site Footer */}
       <footer className="w-full bg-gray-50 border-t border-gray-200 mt-0">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
             <div>
               <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">
-                Apple Repair Pro
+                FixMyDevice NYC
               </h3>
               <p className="text-sm text-gray-500 leading-relaxed">
-                Certified Apple device repair — iPhone, iPad, MacBook & iMac.
+                Professional iPhone, iPad, MacBook & iMac repair in New York.
                 <br />
-                Genuine parts. 90-day warranty. Same-day service.
+                Quality parts. 90-day warranty. Same-day service.
               </p>
+            </div>
+            <div>
+              <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">
+                Contact & Hours
+              </h3>
+              <ul className="space-y-1.5 text-sm text-gray-500">
+                <li>📍 123 Main Street, New York, NY 10001</li>
+                <li>
+                  📞{" "}
+                  <a
+                    className="hover:text-violet-600 transition-colors"
+                    href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-555-123-4567"}`}
+                  >
+                    {process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-555-123-4567"}
+                  </a>
+                </li>
+                <li>
+                  ✉️{" "}
+                  <a
+                    className="hover:text-violet-600 transition-colors"
+                    href={`mailto:${process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "info@fixmydevicenyc.com"}`}
+                  >
+                    {process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "info@fixmydevicenyc.com"}
+                  </a>
+                </li>
+                <li className="pt-1">
+                  <span className="font-medium text-gray-600">Mon–Sat:</span> 9:00 AM – 7:00 PM
+                </li>
+                <li>
+                  <span className="font-medium text-gray-600">Sunday:</span> 10:00 AM – 5:00 PM
+                </li>
+              </ul>
             </div>
             <div>
               <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wider">
@@ -1101,7 +1113,7 @@ export default function Home() {
                     className="hover:text-violet-600 transition-colors"
                     href="/#services"
                   >
-                    Services
+                    Repair Services
                   </Link>
                 </li>
                 <li>
@@ -1162,12 +1174,27 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-200 pt-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-400">
-            <p>
-              &copy; {new Date().getFullYear()} Apple Repair Pro. All rights
-              reserved.
+
+          {/* Google Map Embed */}
+          <div className="mb-6 rounded-xl overflow-hidden border border-gray-200" style={{ height: "200px" }}>
+            <iframe
+              allowFullScreen
+              height="200"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}&q=New+York,NY`}
+              style={{ border: 0, width: "100%", height: "100%" }}
+              title="Business Location"
+            />
+          </div>
+
+          <div className="border-t border-gray-200 pt-5 flex flex-col gap-2 text-xs text-gray-400">
+            <p className="text-center">
+              We are an independent repair service provider and not affiliated, authorized, or endorsed by Apple Inc. iPhone, iPad, MacBook, and iMac are trademarks of Apple Inc.
             </p>
-            <p>Not affiliated with Apple Inc.</p>
+            <p className="text-center">
+              &copy; {new Date().getFullYear()} FixMyDevice NYC. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
@@ -1178,11 +1205,11 @@ export default function Home() {
           className="flex-1 inline-flex items-center justify-center font-bold px-4 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 text-white text-sm shadow-md"
           onClick={openBookingModal}
         >
-          Book Repair Now
+          Request a Repair Quote
         </button>
         <a
           className="flex-1 inline-flex items-center justify-center font-bold px-4 py-3 rounded-xl border-2 border-violet-600 text-violet-600 text-sm"
-          href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+917700044192"}`}
+          href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-555-123-4567"}`}
         >
           <svg
             className="w-4 h-4 mr-1.5"
@@ -1191,7 +1218,7 @@ export default function Home() {
           >
             <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
           </svg>
-          Call Now
+          Request Callback
         </a>
       </div>
       {/* Bottom padding for sticky bar on mobile */}
@@ -1269,7 +1296,7 @@ export default function Home() {
                 <p className="text-xs sm:text-base text-gray-600">
                   {isSuccess
                     ? "We'll get back to you within 24 hours"
-                    : "Get your Apple device fixed by certified technicians"}
+                    : "Get your device repaired by experienced technicians"}
                 </p>
               </div>
             </div>
