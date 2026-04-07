@@ -247,7 +247,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute bottom-[22%] sm:bottom-32 left-2 sm:left-10 bg-white/80 backdrop-blur-sm px-2 py-1.5 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl shadow-md sm:shadow-lg border border-blue-200/50 pointer-events-none block">
+        <div className="absolute bottom-[22%] sm:bottom-24 left-2 sm:left-10 bg-white/80 backdrop-blur-sm px-2 py-1.5 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl shadow-md sm:shadow-lg border border-blue-200/50 pointer-events-none block">
           <div className="flex items-center gap-1 sm:gap-2">
             <div className="w-6 h-6 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-md sm:rounded-lg flex items-center justify-center">
               <svg
@@ -303,7 +303,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute top-[60%] sm:top-[45%] right-6 sm:right-6 bg-white/80 backdrop-blur-sm px-2 py-1.5 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl shadow-md sm:shadow-lg border border-purple-200/50 pointer-events-none block">
+        <div className="absolute top-[70%] sm:top-[35%] right-6 sm:right-6 bg-white/80 backdrop-blur-sm px-2 py-1.5 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl shadow-md sm:shadow-lg border border-purple-200/50 pointer-events-none block">
           <div className="flex items-center gap-1 sm:gap-2">
             <div className="w-6 h-6 sm:w-10 sm:h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-md sm:rounded-lg flex items-center justify-center">
               <svg
@@ -387,9 +387,9 @@ export default function Home() {
         <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center w-full max-w-full max-sm:pt-24">
             {/* Text Content - Shows first on mobile */}
-            <div className="text-center lg:text-left space-y-3 sm:space-y-5 order-1 lg:order-1">
-              <div className="space-y-2">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <div className="text-center lg:text-left space-y-2 sm:space-y-3 order-1 lg:order-1">
+              <div className="space-y-1">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                   <span className="text-gray-900">Independent </span>
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-purple-600">
                     Repair Services{" "}
@@ -398,26 +398,26 @@ export default function Home() {
                   <span className="text-gray-900">for iPhone, iPad & MacBook</span>
                 </h1>
               </div>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed px-2 sm:px-0">
+              <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed px-2 sm:px-0">
                 Professional repairs for iPhone, iPad, MacBook & iMac in New York.
                 Same-day service with quality parts and experienced technicians you can
                 trust.
               </p>
 
-              <div className="flex gap-3 justify-center lg:justify-start flex-row pt-1">
+              <div className="flex gap-2 justify-center lg:justify-start flex-row pt-1">
                 <button
-                  className="inline-flex items-center justify-center font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-gradient-to-r from-violet-600 via-purple-600 to-violet-600 text-white shadow-lg shadow-violet-500/50 hover:shadow-xl hover:shadow-violet-500/60 hover:from-violet-700 hover:via-purple-700 hover:to-violet-700 transition-all duration-200 text-sm sm:text-base lg:text-lg flex-1 sm:flex-initial"
+                  className="inline-flex items-center justify-center font-semibold px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-violet-600 via-purple-600 to-violet-600 text-white shadow-lg shadow-violet-500/50 hover:shadow-xl hover:shadow-violet-500/60 hover:from-violet-700 hover:via-purple-700 hover:to-violet-700 transition-all duration-200 text-xs sm:text-sm flex-1 sm:flex-initial"
                   onClick={openBookingModal}
                 >
                   Request a Repair Quote
                 </button>
 
                 <Link
-                  className="inline-flex items-center justify-center font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-white text-violet-600 shadow-lg hover:shadow-xl hover:bg-gray-50 transition-all duration-200 text-sm sm:text-base lg:text-lg flex-1 sm:flex-initial group"
+                  className="inline-flex items-center justify-center font-semibold px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-white text-violet-600 shadow-lg hover:shadow-xl hover:bg-gray-50 transition-all duration-200 text-xs sm:text-sm flex-1 sm:flex-initial group"
                   href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-555-123-4567"}`}
                 >
                   <svg
-                    className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-200"
+                    className="w-4 h-4 mr-1.5 group-hover:scale-110 transition-transform duration-200"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -1076,30 +1076,33 @@ export default function Home() {
                 Contact & Hours
               </h3>
               <ul className="space-y-1.5 text-sm text-gray-500">
-                <li>📍 123 Main Street, New York, NY 10001</li>
+                <li>📍 14 Terry St, Hicksville, NY 11801</li>
                 <li>
                   📞{" "}
                   <a
                     className="hover:text-violet-600 transition-colors"
-                    href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-555-123-4567"}`}
+                    href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-934-242-2350"}`}
                   >
-                    {process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-555-123-4567"}
+                    {process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-934-242-2350"}
                   </a>
                 </li>
                 <li>
                   ✉️{" "}
                   <a
                     className="hover:text-violet-600 transition-colors"
-                    href={`mailto:${process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "info@fixmydevicenyc.com"}`}
+                    href={`mailto:${process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "fixscreenonline@gmail.com"}`}
                   >
-                    {process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "info@fixmydevicenyc.com"}
+                    {process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "fixscreenonline@gmail.com"}
                   </a>
                 </li>
                 <li className="pt-1">
-                  <span className="font-medium text-gray-600">Mon–Sat:</span> 9:00 AM – 7:00 PM
+                  <span className="font-medium text-gray-600">Mon–Fri:</span> 9:00 AM – 6:00 PM
                 </li>
                 <li>
-                  <span className="font-medium text-gray-600">Sunday:</span> 10:00 AM – 5:00 PM
+                  <span className="font-medium text-gray-600">Saturday:</span> 10:00 AM – 4:00 PM
+                </li>
+                <li>
+                  <span className="font-medium text-gray-600">Sunday:</span> Closed
                 </li>
               </ul>
             </div>
@@ -1176,15 +1179,15 @@ export default function Home() {
           </div>
 
           {/* Google Map Embed */}
-          <div className="mb-6 rounded-xl overflow-hidden border border-gray-200" style={{ height: "200px" }}>
+          <div className="mb-6 rounded-xl overflow-hidden border border-gray-200" style={{ height: "220px" }}>
             <iframe
               allowFullScreen
-              height="200"
+              height="220"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || ""}&q=New+York,NY`}
+              src="https://maps.google.com/maps?q=14+Terry+St,+Hicksville,+NY+11801&z=15&output=embed"
               style={{ border: 0, width: "100%", height: "100%" }}
-              title="Business Location"
+              title="FixMyDevice NYC — 14 Terry St, Hicksville, NY 11801"
             />
           </div>
 

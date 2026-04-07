@@ -58,7 +58,6 @@ export const Navbar = () => {
             className="flex justify-start items-center gap-2 hover:opacity-80 transition-opacity"
             href="/"
           >
-            <Logo />
             <p className="font-bold text-lg sm:text-xl text-gray-900">
               FixMyDevice NYC
             </p>
