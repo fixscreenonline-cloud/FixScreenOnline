@@ -303,7 +303,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute top-[70%] sm:top-[35%] right-6 sm:right-6 bg-white/80 backdrop-blur-sm px-2 py-1.5 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl shadow-md sm:shadow-lg border border-purple-200/50 pointer-events-none block">
+        <div className="absolute top-[54%] sm:top-[35%] right-6 sm:right-6 bg-white/80 backdrop-blur-sm px-2 py-1.5 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl shadow-md sm:shadow-lg border border-purple-200/50 pointer-events-none block">
           <div className="flex items-center gap-1 sm:gap-2">
             <div className="w-6 h-6 sm:w-10 sm:h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-md sm:rounded-lg flex items-center justify-center">
               <svg
@@ -356,7 +356,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute bottom-[22.5%] sm:bottom-24 right-2 sm:right-1/4 bg-white/80 backdrop-blur-sm px-2 py-1.5 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl shadow-md sm:shadow-lg border border-indigo-200/50 pointer-events-none block">
+        <div className="absolute bottom-[24%] sm:bottom-24 right-2 sm:right-1/4 bg-white/80 backdrop-blur-sm px-2 py-1.5 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl shadow-md sm:shadow-lg border border-indigo-200/50 pointer-events-none block">
           <div className="flex items-center gap-1 sm:gap-2">
             <div className="w-6 h-6 sm:w-10 sm:h-10 bg-gradient-to-br from-indigo-500 to-blue-500 rounded-md sm:rounded-lg flex items-center justify-center">
               <svg
@@ -384,7 +384,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 relative z-10">
+        <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 relative z-10 pt-7 sm:pt-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 items-center w-full max-w-full max-sm:pt-24">
             {/* Text Content - Shows first on mobile */}
             <div className="text-center lg:text-left space-y-2 sm:space-y-3 order-1 lg:order-1">
@@ -404,7 +404,7 @@ export default function Home() {
                 trust.
               </p>
 
-              <div className="flex gap-2 justify-center lg:justify-start flex-row pt-1">
+              <div className="hidden sm:flex gap-2 justify-center lg:justify-start flex-row pt-1">
                 <button
                   className="inline-flex items-center justify-center font-semibold px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-violet-600 via-purple-600 to-violet-600 text-white shadow-lg shadow-violet-500/50 hover:shadow-xl hover:shadow-violet-500/60 hover:from-violet-700 hover:via-purple-700 hover:to-violet-700 transition-all duration-200 text-xs sm:text-sm flex-1 sm:flex-initial"
                   onClick={openBookingModal}
