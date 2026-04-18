@@ -91,7 +91,7 @@ export default function LandingPage() {
         });
         gtagEvent("form_submit", {
           event_category: "lead",
-          event_label: "lp_repair_form",
+          event_label: "lp_service_form",
         });
       }
     } catch {
@@ -147,7 +147,7 @@ export default function LandingPage() {
 
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 Cracked screen? Dead battery? Water damage? Our professional
-                technicians service iPhones, MacBooks, iPads, and iMacs —{" "}
+                technicians service Smartphones, Laptops, Tablets, and Desktops —{" "}
                 <strong>usually within hours</strong>, using quality parts.
               </p>
 

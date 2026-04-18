@@ -59,7 +59,7 @@ export const Navbar = () => {
             href="/"
           >
             <p className="font-bold text-lg sm:text-xl text-gray-900">
-              FixMyDevice NYC
+              Device Service NYC
             </p>
           </NextLink>
         </NavbarBrand>

@@ -240,7 +240,7 @@ export function generateStructuredData() {
       },
       {
         "@type": "Question",
-        name: "Can you service water-damaged iPhones or MacBooks?",
+        name: "Can you service water-damaged Smartphones or Laptops?",
         acceptedAnswer: {
           "@type": "Answer",
           text: "Yes — water damage is one of our specialties. Using ultrasonic cleaning and micro-soldering techniques, we successfully restore the majority of liquid-damaged Premium Brand devices.",
