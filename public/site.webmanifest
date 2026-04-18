@@ -1,7 +1,7 @@
 {
-  "name": "FixMyDevice NYC",
-  "short_name": "FixMyDevice",
-  "description": "Independent iPhone, iPad & MacBook repair services in New York",
+  "name": "Device Service NYC",
+  "short_name": "DeviceService",
+  "description": "Independent Smartphone, Tablet & Laptop services in New York",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
