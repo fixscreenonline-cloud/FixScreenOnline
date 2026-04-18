@@ -108,7 +108,7 @@ export function generateStructuredData() {
             "@type": "Service",
             name: "Smartphone service",
             description:
-              "Screen replacement, battery replacement, and other Smartphone services",
+              "Screen Restoration, Power Service, and other Smartphone services",
           },
         },
         {
@@ -117,7 +117,7 @@ export function generateStructuredData() {
             "@type": "Service",
             name: "Tablet service",
             description:
-              "Screen replacement, battery replacement, and other Tablet services",
+              "Screen Restoration, Power Service, and other Tablet services",
           },
         },
         {
@@ -144,7 +144,7 @@ export function generateStructuredData() {
             "@type": "Service",
             name: "Premium Brand Watch service",
             description:
-              "Screen replacement, battery replacement, and other Premium Brand Watch services",
+              "Screen Restoration, Power Service, and other Premium Brand Watch services",
           },
         },
       ],

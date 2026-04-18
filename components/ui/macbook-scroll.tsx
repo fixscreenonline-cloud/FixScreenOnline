@@ -168,9 +168,9 @@ export const Lid = ({
       >
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
         <Image
-          alt="Broken screen display"
+          alt="display issue display"
           className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top"
-          src="/broken-screen.png"
+          src="/impacted-screen.png"
           fill
           sizes="512px"
         />

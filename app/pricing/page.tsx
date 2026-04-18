@@ -13,8 +13,8 @@ const pricingData = [
     accent: "text-blue-600",
     badge: "bg-blue-100 text-blue-700",
     services: [
-      { name: "Screen Replacement", price: "From $79", time: "1–2 hrs" },
-      { name: "Battery Replacement", price: "From $49", time: "30 mins" },
+      { name: "Screen Restoration", price: "From $79", time: "1–2 hrs" },
+      { name: "Power Service", price: "From $49", time: "30 mins" },
       { name: "Charging Port service", price: "From $39", time: "1 hr" },
       { name: "Back Glass service", price: "From $69", time: "2 hrs" },
       { name: "Camera service", price: "From $79", time: "1–2 hrs" },
@@ -29,8 +29,8 @@ const pricingData = [
     accent: "text-violet-600",
     badge: "bg-violet-100 text-violet-700",
     services: [
-      { name: "Screen Replacement", price: "From $299", time: "2–4 hrs" },
-      { name: "Battery Replacement", price: "From $189", time: "1–2 hrs" },
+      { name: "Screen Restoration", price: "From $299", time: "2–4 hrs" },
+      { name: "Power Service", price: "From $189", time: "1–2 hrs" },
       { name: "Keyboard Replacement", price: "From $149", time: "2 hrs" },
       { name: "Motherboard service", price: "From $249", time: "24–48 hrs" },
       { name: "Storage Upgrade (SSD)", price: "From $179", time: "2 hrs" },
@@ -45,8 +45,8 @@ const pricingData = [
     accent: "text-green-600",
     badge: "bg-green-100 text-green-700",
     services: [
-      { name: "Screen Replacement", price: "From $129", time: "2–3 hrs" },
-      { name: "Battery Replacement", price: "From $89", time: "1–2 hrs" },
+      { name: "Screen Restoration", price: "From $129", time: "2–3 hrs" },
+      { name: "Power Service", price: "From $89", time: "1–2 hrs" },
       { name: "Charging Port service", price: "From $49", time: "1 hr" },
       { name: "Home Button service", price: "From $39", time: "1 hr" },
       { name: "Camera service", price: "From $79", time: "2 hrs" },
@@ -61,7 +61,7 @@ const pricingData = [
     accent: "text-amber-600",
     badge: "bg-amber-100 text-amber-700",
     services: [
-      { name: "Screen Replacement", price: "From $399", time: "3–5 hrs" },
+      { name: "Screen Restoration", price: "From $399", time: "3–5 hrs" },
       { name: "RAM Upgrade", price: "From $99", time: "1–2 hrs" },
       { name: "Storage Upgrade (SSD)", price: "From $199", time: "2–3 hrs" },
       { name: "GPU service", price: "From $299", time: "24–48 hrs" },
