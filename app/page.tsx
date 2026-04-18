@@ -58,7 +58,7 @@ const faqs = [
     a: "Absolutely. Every service comes with a 90-day warranty covering parts and workmanship. If anything goes wrong due to our service, we'll restore it free of charge.",
   },
   {
-    q: "Can you service water-damaged iPhones or MacBooks?",
+    q: "Can you service water-damaged Smartphones or Laptops?",
     a: "Yes — water damage is one of our specialties. Using ultrasonic cleaning and micro-soldering techniques, we successfully restore the majority of liquid-damaged Premium Brand devices. Bring it in as soon as possible for the best outcome.",
   },
   {
@@ -134,7 +134,7 @@ export default function Home() {
     setIsModalOpen(true);
     gtagEvent("generate_lead", {
       event_category: "engagement",
-      event_label: "book_repair_cta",
+      event_label: "book_service_cta",
     });
   };
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -185,7 +185,7 @@ export default function Home() {
         });
         gtagEvent("form_submit", {
           event_category: "lead",
-          event_label: "repair_enquiry",
+          event_label: "service_enquiry",
         });
         setFormData({
           name: "",
@@ -1003,7 +1003,7 @@ export default function Home() {
 
             <div className="relative z-10">
               <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-white/20 backdrop-blur-sm rounded-full mb-3 sm:mb-4 text-xs sm:text-sm font-semibold">
-                Get Your Device Fixed Today
+                Get Your Device Serviced Today
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">
                 Ready to Restore Your Device?
@@ -1090,9 +1090,9 @@ export default function Home() {
                   ✉️{" "}
                   <a
                     className="hover:text-violet-600 transition-colors"
-                    href={`mailto:${process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "fixscreenonline@gmail.com"}`}
+                    href={`mailto:${process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "support@deviceservicenyc.com"}`}
                   >
-                    {process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "fixscreenonline@gmail.com"}
+                    {process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "support@deviceservicenyc.com"}
                   </a>
                 </li>
                 <li className="pt-1">
