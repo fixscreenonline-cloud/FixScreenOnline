@@ -43,10 +43,10 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify({
         from: "onboarding@resend.dev", // You'll need to verify your domain
         to: ADMIN_EMAIL,
-        subject: `New Repair Request from ${name}`,
+        subject: `New service Request from ${name}`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #7c3aed;">New Device Repair Request</h2>
+            <h2 style="color: #7c3aed;">New Device service Request</h2>
             
             <div style="background-color: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0;">
               <p style="margin: 10px 0;"><strong>Name:</strong> ${name}</p>
@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
             <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 30px 0;">
             
             <p style="color: #6b7280; font-size: 14px;">
-              This email was sent from your Apple Device Repair website contact form.
+              This email was sent from your Premium Brand Device service website contact form.
             </p>
           </div>
         `,

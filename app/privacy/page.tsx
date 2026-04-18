@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.fixmydevicenyc.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.deviceservicenyc.com";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | FixMyDevice NYC",
+  title: "Privacy Policy | Device Service NYC",
   description:
-    "Read our privacy policy to understand how FixMyDevice NYC collects, uses, and protects your personal information.",
+    "Read our privacy policy to understand how Device Service NYC collects, uses, and protects your personal information.",
   alternates: { canonical: `${SITE_URL}/privacy` },
   robots: { index: false, follow: false },
 };
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   const lastUpdated = "April 3, 2026";
   const businessName =
-    process.env.NEXT_PUBLIC_BUSINESS_NAME || "FixMyDevice NYC";
+    process.env.NEXT_PUBLIC_BUSINESS_NAME || "Device Service NYC";
   const businessEmail =
     process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "contact@example.com";
 
@@ -34,7 +34,7 @@ export default function PrivacyPage() {
               1. Who We Are
             </h2>
             <p>
-              {businessName} (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) provides Apple device repair
+              {businessName} (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) provides Premium Brand device service
               services. This policy explains what data we collect when you use
               our website or services, how we use it, and your rights regarding
               that data.
@@ -48,7 +48,7 @@ export default function PrivacyPage() {
             <ul className="list-disc pl-5 space-y-1">
               <li>
                 <strong>Contact information</strong> — name, email address,
-                phone number when you submit a repair enquiry.
+                phone number when you submit a service enquiry.
               </li>
               <li>
                 <strong>Device information</strong> — device type and
@@ -71,11 +71,11 @@ export default function PrivacyPage() {
               3. How We Use Your Information
             </h2>
             <ul className="list-disc pl-5 space-y-1">
-              <li>To respond to repair enquiries and provide quotes.</li>
-              <li>To process and complete your repair.</li>
+              <li>To respond to service enquiries and provide quotes.</li>
+              <li>To process and complete your service.</li>
               <li>
                 To send you service updates and follow-up communications related
-                to your repair.
+                to your service.
               </li>
               <li>
                 To improve our website and services through aggregated
@@ -100,7 +100,7 @@ export default function PrivacyPage() {
             <ul className="list-disc pl-5 space-y-1 mt-2">
               <li>
                 <strong>Email service providers</strong> (e.g., Resend) strictly
-                to deliver repair confirmation emails.
+                to deliver service confirmation emails.
               </li>
               <li>
                 <strong>Analytics providers</strong> (Google Analytics) under

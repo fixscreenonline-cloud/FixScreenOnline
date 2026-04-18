@@ -14,7 +14,7 @@ import { ScrollToHash } from "@/components/scroll-to-hash";
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 const GA_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.fixmydevicenyc.com";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.deviceservicenyc.com";
 const BUSINESS_CITY = process.env.NEXT_PUBLIC_BUSINESS_CITY || "Hicksville";
 const BUSINESS_STATE = process.env.NEXT_PUBLIC_BUSINESS_STATE || "NY";
 const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
@@ -22,25 +22,25 @@ const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `iPhone & MacBook Repair Services in New York | ${siteConfig.name}`,
+    default: `Smartphone & Laptop service Services in New York | ${siteConfig.name}`,
     template: `%s | ${siteConfig.name}`,
   },
-  description: `Professional iPhone, iPad, MacBook & iMac repair in ${BUSINESS_CITY}, ${BUSINESS_STATE}. Experienced technicians, quality parts, 90-day warranty & same-day service. Request a free quote today.`,
+  description: `Professional Smartphone, Tablet, Laptop & Desktop service in ${BUSINESS_CITY}, ${BUSINESS_STATE}. Experienced technicians, quality parts, 90-day warranty & same-day service. Request a free quote today.`,
   keywords: [
-    "iPhone repair New York",
-    "iPad repair NYC",
-    "MacBook repair New York",
-    "iMac repair NYC",
-    "Apple Watch repair New York",
+    "Smartphone service New York",
+    "Tablet service NYC",
+    "Laptop service New York",
+    "Desktop service NYC",
+    "Premium Brand Watch service New York",
     "screen replacement NYC",
     "battery replacement",
-    "water damage repair",
-    "device repair technician",
-    "same day device repair",
-    `iPhone repair ${BUSINESS_CITY}`,
-    `MacBook repair ${BUSINESS_CITY}`,
-    "phone repair near me",
-    "independent repair service",
+    "water damage service",
+    "device service technician",
+    "same day device service",
+    `Smartphone service ${BUSINESS_CITY}`,
+    `Laptop service ${BUSINESS_CITY}`,
+    "phone service near me",
+    "independent service service",
   ],
   authors: [{ name: siteConfig.name, url: SITE_URL }],
   creator: siteConfig.name,
@@ -62,22 +62,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    title: `iPhone & MacBook Repair Services in ${BUSINESS_CITY} | ${siteConfig.name}`,
-    description: `Professional iPhone, iPad, MacBook & iMac repair in ${BUSINESS_CITY}, ${BUSINESS_STATE}. Experienced technicians. 90-day warranty. Request a quote online.`,
+    title: `Smartphone & Laptop service Services in ${BUSINESS_CITY} | ${siteConfig.name}`,
+    description: `Professional Smartphone, Tablet, Laptop & Desktop service in ${BUSINESS_CITY}, ${BUSINESS_STATE}. Experienced technicians. 90-day warranty. Request a quote online.`,
     siteName: siteConfig.name,
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} — iPhone & MacBook Repair in ${BUSINESS_CITY}`,
+        alt: `${siteConfig.name} — Smartphone & Laptop service in ${BUSINESS_CITY}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `iPhone & MacBook Repair Services in ${BUSINESS_CITY} | ${siteConfig.name}`,
-    description: `Professional iPhone, iPad, MacBook & iMac repair in ${BUSINESS_CITY}. 90-day warranty. Request a free quote online.`,
+    title: `Smartphone & Laptop service Services in ${BUSINESS_CITY} | ${siteConfig.name}`,
+    description: `Professional Smartphone, Tablet, Laptop & Desktop service in ${BUSINESS_CITY}. 90-day warranty. Request a free quote online.`,
     images: ["/og-image.png"],
   },
   robots: {

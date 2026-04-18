@@ -1,7 +1,7 @@
 export function generateStructuredData() {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://your-domain.com";
   const businessName =
-    process.env.NEXT_PUBLIC_BUSINESS_NAME || "FixMyDevice NYC";
+    process.env.NEXT_PUBLIC_BUSINESS_NAME || "Device Service NYC";
   const businessEmail =
     process.env.NEXT_PUBLIC_BUSINESS_EMAIL || "contact@example.com";
   const businessPhone =
@@ -26,7 +26,7 @@ export function generateStructuredData() {
     logo: `${siteUrl}/logo.png`,
     image: `${siteUrl}/og-image.png`,
     description:
-      "Independent device repair service for iPhone, iPad, MacBook & iMac with experienced technicians. Same-day repairs available.",
+      "Independent device service service for Smartphone, Tablet, Laptop & Desktop with experienced technicians. Same-day services available.",
     telephone: businessPhone,
     email: businessEmail,
     address: {
@@ -72,7 +72,7 @@ export function generateStructuredData() {
     "@id": `${siteUrl}/#website`,
     url: siteUrl,
     name: businessName,
-    description: "Professional Apple device repair services",
+    description: "Professional Premium Brand device service services",
     publisher: {
       "@id": `${siteUrl}/#organization`,
     },
@@ -90,7 +90,7 @@ export function generateStructuredData() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    serviceType: "Apple Device Repair",
+    serviceType: "Premium Brand Device service",
     provider: {
       "@id": `${siteUrl}/#organization`,
     },
@@ -100,51 +100,51 @@ export function generateStructuredData() {
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Apple Device Repair Services",
+      name: "Premium Brand Device service Services",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "iPhone Repair",
+            name: "Smartphone service",
             description:
-              "Screen replacement, battery replacement, and other iPhone repairs",
+              "Screen replacement, battery replacement, and other Smartphone services",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "iPad Repair",
+            name: "Tablet service",
             description:
-              "Screen replacement, battery replacement, and other iPad repairs",
+              "Screen replacement, battery replacement, and other Tablet services",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "MacBook Repair",
+            name: "Laptop service",
             description:
-              "Hardware repair, software troubleshooting, and MacBook maintenance",
+              "Hardware service, software troubleshooting, and Laptop maintenance",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "iMac Repair",
+            name: "Desktop service",
             description:
-              "Hardware repair, software troubleshooting, and iMac maintenance",
+              "Hardware service, software troubleshooting, and Desktop maintenance",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Apple Watch Repair",
+            name: "Premium Brand Watch service",
             description:
-              "Screen replacement, battery replacement, and other Apple Watch repairs",
+              "Screen replacement, battery replacement, and other Premium Brand Watch services",
           },
         },
       ],
@@ -190,21 +190,21 @@ export function generateStructuredData() {
         author: { "@type": "Person", name: "James R." },
         reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
         reviewBody:
-          "I was amazed by the quick service for my water-damaged MacBook. The technician restored it to perfect working condition. Highly recommended!",
+          "I was amazed by the quick service for my water-damaged Laptop. The technician restored it to perfect working condition. Highly recommended!",
       },
       {
         "@type": "Review",
         author: { "@type": "Person", name: "Sarah M." },
         reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
         reviewBody:
-          "My iMac had storage issues, and the upgrade service was flawless. Everything was explained clearly, and now my device runs faster than ever.",
+          "My Desktop had storage issues, and the upgrade service was flawless. Everything was explained clearly, and now my device runs faster than ever.",
       },
       {
         "@type": "Review",
         author: { "@type": "Person", name: "Michael T." },
         reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
         reviewBody:
-          "Had my iPhone screen replaced in under 2 hours. The repair looks perfect and the pricing was completely transparent.",
+          "Had my Smartphone screen replaced in under 2 hours. The service looks perfect and the pricing was completely transparent.",
       },
     ],
   };
@@ -216,50 +216,50 @@ export function generateStructuredData() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "How long does a typical Apple device repair take?",
+        name: "How long does a typical Premium Brand device service take?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Most screen replacements and battery swaps are completed within 1–3 hours while you wait. More complex repairs like motherboard or water damage may take 24–48 hours.",
+          text: "Most screen replacements and battery swaps are completed within 1–3 hours while you wait. More complex services like motherboard or water damage may take 24–48 hours.",
         },
       },
       {
         "@type": "Question",
-        name: "Do you use genuine Apple parts?",
+        name: "Do you use genuine Premium Brand parts?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. We use OEM-grade and genuine Apple parts for all repairs to ensure the same quality, fit, and feel as the original.",
+          text: "Yes. We use OEM-grade and genuine Premium Brand parts for all services to ensure the same quality, fit, and feel as the original.",
         },
       },
       {
         "@type": "Question",
-        name: "Is there a warranty on Apple device repairs?",
+        name: "Is there a warranty on Premium Brand device services?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Every repair comes with a 90-day warranty covering parts and workmanship. If anything goes wrong due to our repair, we'll fix it free of charge.",
+          text: "Every service comes with a 90-day warranty covering parts and workmanship. If anything goes wrong due to our service, we'll restore it free of charge.",
         },
       },
       {
         "@type": "Question",
-        name: "Can you repair water-damaged iPhones or MacBooks?",
+        name: "Can you service water-damaged iPhones or MacBooks?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes — water damage is one of our specialties. Using ultrasonic cleaning and micro-soldering techniques, we successfully restore the majority of liquid-damaged Apple devices.",
+          text: "Yes — water damage is one of our specialties. Using ultrasonic cleaning and micro-soldering techniques, we successfully restore the majority of liquid-damaged Premium Brand devices.",
         },
       },
       {
         "@type": "Question",
-        name: "What is the cost of Apple device repair?",
+        name: "What is the cost of Premium Brand device service?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Costs vary by device and repair type. We offer a free diagnostic assessment before any work begins, so you'll know the exact cost upfront with no hidden fees.",
+          text: "Costs vary by device and service type. We offer a free diagnostic assessment before any work begins, so you'll know the exact cost upfront with no hidden fees.",
         },
       },
       {
         "@type": "Question",
-        name: "Do I need to book an appointment for repair?",
+        name: "Do I need to book an appointment for service?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Walk-ins are welcome! For faster service you can submit a repair request online or call ahead. For MacBook and iMac repairs we recommend calling first.",
+          text: "Walk-ins are welcome! For faster service you can submit a service request online or call ahead. For Laptop and Desktop services we recommend calling first.",
         },
       },
     ],

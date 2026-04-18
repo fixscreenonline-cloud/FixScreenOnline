@@ -19,41 +19,41 @@ function gtagEvent(eventName: string, params?: Record<string, string>) {
 }
 
 const devices = [
-  { key: "iphone", label: "iPhone" },
-  { key: "macbook", label: "MacBook" },
-  { key: "ipad", label: "iPad" },
-  { key: "imac", label: "iMac" },
-  { key: "iwatch", label: "Apple Watch" },
-  { key: "other", label: "Other Apple Device" },
+  { key: "smartphone", label: "Smartphone" },
+  { key: "laptop", label: "Laptop" },
+  { key: "tablet", label: "Tablet" },
+  { key: "desktop", label: "Desktop" },
+  { key: "smartwatch", label: "Premium Brand Watch" },
+  { key: "other", label: "Other Premium Brand Device" },
 ];
 
 const trustPoints = [
-  { icon: Shield, text: "90-Day Warranty on Every Repair" },
+  { icon: Shield, text: "90-Day Warranty on Every service" },
   { icon: CheckCircle, text: "Genuine & OEM-Grade Parts Only" },
-  { icon: Clock, text: "Most Repairs Done in 1–3 Hours" },
+  { icon: Clock, text: "Most Services Done in 1–3 Hours" },
   { icon: Star, text: "4.9 ★ Average Customer Rating" },
-  { icon: Wrench, text: "Certified Apple Technicians" },
-  { icon: CheckCircle, text: "No Fix = No Fee Guarantee" },
+  { icon: Wrench, text: "Certified Premium Brand Technicians" },
+  { icon: CheckCircle, text: "No restore = No Fee Guarantee" },
 ];
 
 const reviews = [
   {
     name: "James R.",
     rating: 5,
-    text: "My water-damaged MacBook was restored perfectly. Saved me from buying a new one. Incredible service!",
-    device: "MacBook Pro — Brooklyn, NY",
+    text: "My water-damaged Laptop was restored perfectly. Saved me from buying a new one. Incredible service!",
+    device: "Laptop Pro — Brooklyn, NY",
   },
   {
     name: "Sarah M.",
     rating: 5,
     text: "Screen replaced in under 2 hours. Looks brand new. Very professional technicians.",
-    device: "iPhone 14 Pro — Manhattan, NY",
+    device: "Smartphone 14 Pro — Manhattan, NY",
   },
   {
     name: "David L.",
     rating: 5,
-    text: "Battery replaced quickly and at a fair price. My iPhone lasts all day again. Highly recommend!",
-    device: "iPhone 13 — Queens, NY",
+    text: "Battery replaced quickly and at a fair price. My Smartphone lasts all day again. Highly recommend!",
+    device: "Smartphone 13 — Queens, NY",
   },
 ];
 
@@ -111,7 +111,7 @@ export default function LandingPage() {
               <Wrench className="w-4 h-4 text-white" />
             </div>
             <span className="font-bold text-gray-900 text-sm sm:text-base">
-              FixMyDevice NYC
+              Device Service NYC
             </span>
           </div>
           <a
@@ -135,19 +135,19 @@ export default function LandingPage() {
             <div className="space-y-5">
               <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-xs font-semibold px-3 py-1.5 rounded-full">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                Open Now — Same-Day Repairs Available
+                Open Now — Same-Day Services Available
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-                Independent Repair Services
+                Independent service Services
                 <span className="block bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-purple-600">
-                  iPhone, iPad & MacBook
+                  Smartphone, Tablet & Laptop
                 </span>
               </h1>
 
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 Cracked screen? Dead battery? Water damage? Our professional
-                technicians repair iPhones, MacBooks, iPads, and iMacs —{" "}
+                technicians service iPhones, MacBooks, iPads, and iMacs —{" "}
                 <strong>usually within hours</strong>, using quality parts.
               </p>
 
@@ -210,7 +210,7 @@ export default function LandingPage() {
                 <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
                   <div className="bg-gradient-to-r from-violet-600 to-purple-600 px-6 py-4">
                     <h2 className="text-white font-bold text-lg">
-                      Get Your Free Repair Quote
+                      Get Your Free service Quote
                     </h2>
                     <p className="text-violet-100 text-sm">
                       Fill in 4 quick fields — we&apos;ll call you back in 30
@@ -327,9 +327,9 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap gap-6 justify-center mb-10">
             {[
-              { value: "4,500+", label: "Devices Repaired" },
+              { value: "4,500+", label: "Devices serviced" },
               { value: "4.9 ★", label: "Average Rating" },
-              { value: "90 Days", label: "Repair Warranty" },
+              { value: "90 Days", label: "service Warranty" },
               { value: "Same Day", label: "Service Available" },
             ].map((stat) => (
               <div key={stat.label} className="text-center min-w-[120px]">
@@ -394,7 +394,7 @@ export default function LandingPage() {
       {/* Minimal Footer */}
       <footer className="bg-gray-50 border-t border-gray-200 text-center py-6 px-4">
         <p className="text-xs text-gray-400">
-          © {new Date().getFullYear()} FixMyDevice NYC · We are an independent repair service provider and not affiliated, authorized, or endorsed by Apple Inc. ·{" "}          <a className="hover:text-violet-600" href="/privacy">
+          © {new Date().getFullYear()} Device Service NYC · We are an independent service service provider and not affiliated, authorized, or endorsed by Premium Brand Inc. ·{" "}          <a className="hover:text-violet-600" href="/privacy">
             Privacy
           </a>{" "}
           ·{" "}

@@ -6,66 +6,66 @@ import Link from "next/link";
 
 const pricingData = [
   {
-    device: "iPhone",
+    device: "Smartphone",
     color: "blue",
     gradient: "from-blue-50 to-cyan-50",
     border: "border-blue-200",
     accent: "text-blue-600",
     badge: "bg-blue-100 text-blue-700",
-    repairs: [
+    services: [
       { name: "Screen Replacement", price: "From $79", time: "1–2 hrs" },
       { name: "Battery Replacement", price: "From $49", time: "30 mins" },
-      { name: "Charging Port Repair", price: "From $39", time: "1 hr" },
-      { name: "Back Glass Repair", price: "From $69", time: "2 hrs" },
-      { name: "Camera Repair", price: "From $79", time: "1–2 hrs" },
+      { name: "Charging Port service", price: "From $39", time: "1 hr" },
+      { name: "Back Glass service", price: "From $69", time: "2 hrs" },
+      { name: "Camera service", price: "From $79", time: "1–2 hrs" },
       { name: "Water Damage", price: "From $99", time: "24 hrs" },
     ],
   },
   {
-    device: "MacBook",
+    device: "Laptop",
     color: "violet",
     gradient: "from-violet-50 to-purple-50",
     border: "border-violet-200",
     accent: "text-violet-600",
     badge: "bg-violet-100 text-violet-700",
-    repairs: [
+    services: [
       { name: "Screen Replacement", price: "From $299", time: "2–4 hrs" },
       { name: "Battery Replacement", price: "From $189", time: "1–2 hrs" },
       { name: "Keyboard Replacement", price: "From $149", time: "2 hrs" },
-      { name: "Motherboard Repair", price: "From $249", time: "24–48 hrs" },
+      { name: "Motherboard service", price: "From $249", time: "24–48 hrs" },
       { name: "Storage Upgrade (SSD)", price: "From $179", time: "2 hrs" },
-      { name: "Water Damage Repair", price: "From $199", time: "24–48 hrs" },
+      { name: "Water Damage service", price: "From $199", time: "24–48 hrs" },
     ],
   },
   {
-    device: "iPad",
+    device: "Tablet",
     color: "green",
     gradient: "from-green-50 to-emerald-50",
     border: "border-green-200",
     accent: "text-green-600",
     badge: "bg-green-100 text-green-700",
-    repairs: [
+    services: [
       { name: "Screen Replacement", price: "From $129", time: "2–3 hrs" },
       { name: "Battery Replacement", price: "From $89", time: "1–2 hrs" },
-      { name: "Charging Port Repair", price: "From $49", time: "1 hr" },
-      { name: "Home Button Repair", price: "From $39", time: "1 hr" },
-      { name: "Camera Repair", price: "From $79", time: "2 hrs" },
+      { name: "Charging Port service", price: "From $49", time: "1 hr" },
+      { name: "Home Button service", price: "From $39", time: "1 hr" },
+      { name: "Camera service", price: "From $79", time: "2 hrs" },
       { name: "Water Damage", price: "From $109", time: "24 hrs" },
     ],
   },
   {
-    device: "iMac",
+    device: "Desktop",
     color: "amber",
     gradient: "from-amber-50 to-yellow-50",
     border: "border-amber-200",
     accent: "text-amber-600",
     badge: "bg-amber-100 text-amber-700",
-    repairs: [
+    services: [
       { name: "Screen Replacement", price: "From $399", time: "3–5 hrs" },
       { name: "RAM Upgrade", price: "From $99", time: "1–2 hrs" },
       { name: "Storage Upgrade (SSD)", price: "From $199", time: "2–3 hrs" },
-      { name: "GPU Repair", price: "From $299", time: "24–48 hrs" },
-      { name: "Motherboard Repair", price: "From $349", time: "48 hrs" },
+      { name: "GPU service", price: "From $299", time: "24–48 hrs" },
+      { name: "Motherboard service", price: "From $349", time: "48 hrs" },
       { name: "Water Damage", price: "From $249", time: "24–48 hrs" },
     ],
   },
@@ -74,14 +74,14 @@ const pricingData = [
 const included = [
   "Free diagnostic assessment",
   "Genuine / OEM-grade parts",
-  "90-day repair warranty",
-  "No fix — no fee guarantee",
+  "90-day service warranty",
+  "No restore — no fee guarantee",
   "Same-day service available",
   "Transparent pricing upfront",
 ];
 
 export default function PricingPage() {
-  const [activeDevice, setActiveDevice] = useState("MacBook");
+  const [activeDevice, setActiveDevice] = useState("Laptop");
   const active = pricingData.find((p) => p.device === activeDevice)!;
 
   return (
@@ -92,7 +92,7 @@ export default function PricingPage() {
           Transparent & Affordable
         </p>
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-          Transparent Repair Pricing
+          Transparent service Pricing
         </h1>
         <p className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto mb-6">
           No hidden charges. Free diagnostics. All prices start from — final
@@ -110,7 +110,7 @@ export default function PricingPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10">
         <div className="bg-gradient-to-r from-violet-600 to-purple-600 rounded-2xl p-6 sm:p-8 text-white">
           <h2 className="text-xl sm:text-2xl font-bold mb-5 text-center">
-            Every Repair Includes
+            Every service Includes
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             {included.map((item) => (
@@ -148,31 +148,31 @@ export default function PricingPage() {
         >
           <div className={`px-6 py-4 border-b ${active.border}`}>
             <h2 className={`text-xl font-bold ${active.accent}`}>
-              {active.device} Repair Prices
+              {active.device} service Prices
             </h2>
             <p className="text-xs text-gray-500 mt-0.5">
               Exact price confirmed after free diagnostics
             </p>
           </div>
           <div className="divide-y divide-gray-100">
-            {active.repairs.map((repair) => (
+            {active.services.map((service) => (
               <div
-                key={repair.name}
+                key={service.name}
                 className="flex items-center justify-between px-6 py-4 bg-white/60 hover:bg-white/90 transition-colors"
               >
                 <div>
                   <p className="font-semibold text-gray-900 text-sm sm:text-base">
-                    {repair.name}
+                    {service.name}
                   </p>
                   <p className="text-xs text-gray-400 mt-0.5">
-                    Est. time: {repair.time}
+                    Est. time: {service.time}
                   </p>
                 </div>
                 <div className="text-right">
                   <span
                     className={`font-bold text-sm sm:text-base ${active.accent}`}
                   >
-                    {repair.price}
+                    {service.price}
                   </span>
                 </div>
               </div>
@@ -183,7 +183,7 @@ export default function PricingPage() {
         {/* Disclaimer */}
         <p className="text-center text-xs text-gray-400 mt-5">
           * Prices are indicative and may vary based on model variant and
-          severity. Final price always confirmed before repair begins.
+          severity. Final price always confirmed before service begins.
         </p>
 
         {/* CTA strip */}
