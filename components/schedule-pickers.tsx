@@ -3,7 +3,7 @@
 import { DatePicker } from "@heroui/date-picker";
 import { Select, SelectItem } from "@heroui/select";
 import {
-  CalendarDate,
+  type DateValue,
   getLocalTimeZone,
   parseDate,
   today,
@@ -34,7 +34,7 @@ const TIME_SLOTS = Array.from({ length: 12 }, (_, index) => {
   });
 }).flat();
 
-function stringToDate(value: string): CalendarDate | null {
+function stringToDate(value: string): DateValue | null {
   if (!value) return null;
 
   try {
@@ -44,7 +44,7 @@ function stringToDate(value: string): CalendarDate | null {
   }
 }
 
-function dateToString(value: CalendarDate | null): string {
+function dateToString(value: DateValue | null): string {
   return value?.toString() ?? "";
 }
 
