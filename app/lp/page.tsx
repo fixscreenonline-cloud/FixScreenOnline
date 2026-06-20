@@ -11,21 +11,17 @@ import {
   Wrench,
 } from "lucide-react";
 
+import { LanguageSwitcher } from "@/components/locale-switcher";
+import { SchedulePickers } from "@/components/schedule-pickers";
+import { ServiceAddressFields } from "@/components/service-address-fields";
+import { useLanguage } from "@/lib/i18n/language-provider";
+
 // Google Ads / gtag conversion helper
 function gtagEvent(eventName: string, params?: Record<string, string>) {
   if (typeof window !== "undefined" && (window as any).gtag) {
     (window as any).gtag("event", eventName, params);
   }
 }
-
-const devices = [
-  { key: "smartphone", label: "Smartphone" },
-  { key: "laptop", label: "Laptop" },
-  { key: "tablet", label: "Tablet" },
-  { key: "desktop", label: "Desktop" },
-  { key: "smartwatch", label: "Premium Brand Watch" },
-  { key: "other", label: "Other Premium Brand Device" },
-];
 
 const trustPoints = [
   { icon: Shield, text: "90-Day Warranty on Every service" },
@@ -58,10 +54,19 @@ const reviews = [
 ];
 
 export default function LandingPage() {
+  const { dict } = useLanguage();
+  const form = dict.home.form.modal;
+  const devices = dict.home.form.devices;
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     device: "",
+    serviceLocation: "" as "" | "store" | "come-to-me",
+    streetAddress: "",
+    city: "",
+    zip: "",
+    preferredDate: "",
+    preferredTime: "",
     issue: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -71,6 +76,11 @@ export default function LandingPage() {
     formData.name.trim() !== "" &&
     formData.phone.trim() !== "" &&
     formData.device !== "" &&
+    formData.serviceLocation !== "" &&
+    (formData.serviceLocation !== "come-to-me" ||
+      (formData.streetAddress.trim() !== "" &&
+        formData.city.trim() !== "" &&
+        formData.zip.trim() !== "")) &&
     formData.issue.trim() !== "";
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -111,19 +121,22 @@ export default function LandingPage() {
               <Wrench className="w-4 h-4 text-white" />
             </div>
             <span className="font-bold text-gray-900 text-sm sm:text-base">
-              Device Service NYC
+              {dict.nav.brand}
             </span>
           </div>
-          <a
-            className="inline-flex items-center gap-1.5 font-bold px-4 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 text-white text-sm shadow-md"
-            href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-555-123-4567"}`}
-            onClick={() =>
-              gtagEvent("phone_call_click", { event_category: "lead" })
-            }
-          >
-            <Phone className="w-3.5 h-3.5" />
-            {process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+91-77000-44192"}
-          </a>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <LanguageSwitcher compact />
+            <a
+              className="inline-flex items-center gap-1.5 font-bold px-4 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 text-white text-sm shadow-md"
+              href={`tel:${process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+1-555-123-4567"}`}
+              onClick={() =>
+                gtagEvent("phone_call_click", { event_category: "lead" })
+              }
+            >
+              <Phone className="w-3.5 h-3.5" />
+              {process.env.NEXT_PUBLIC_BUSINESS_PHONE || "+91-77000-44192"}
+            </a>
+          </div>
         </div>
       </header>
 
@@ -223,7 +236,7 @@ export default function LandingPage() {
                         className="block text-sm font-semibold text-gray-700 mb-1"
                         htmlFor="lp-name"
                       >
-                        Your Name *
+                        {form.fullName} *
                       </label>
                       <input
                         required
@@ -243,7 +256,7 @@ export default function LandingPage() {
                         className="block text-sm font-semibold text-gray-700 mb-1"
                         htmlFor="lp-phone"
                       >
-                        Phone Number *
+                        {form.phone} *
                       </label>
                       <input
                         required
@@ -263,7 +276,7 @@ export default function LandingPage() {
                         className="block text-sm font-semibold text-gray-700 mb-1"
                         htmlFor="lp-device"
                       >
-                        Device *
+                        {form.deviceType.replace(" *", "")} *
                       </label>
                       <select
                         required
@@ -274,7 +287,7 @@ export default function LandingPage() {
                           setFormData({ ...formData, device: e.target.value })
                         }
                       >
-                        <option value="">Select your device</option>
+                        <option value="">{form.devicePlaceholder}</option>
                         {devices.map((d) => (
                           <option key={d.key} value={d.key}>
                             {d.label}
@@ -284,11 +297,141 @@ export default function LandingPage() {
                     </div>
 
                     <div>
+                      <span className="block text-sm font-semibold text-gray-700 mb-2">
+                        {form.serviceMethod}
+                      </span>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <label
+                          className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-colors ${
+                            formData.serviceLocation === "store"
+                              ? "border-violet-500 bg-violet-50 ring-1 ring-violet-500/20"
+                              : "border-gray-300 hover:border-gray-400"
+                          }`}
+                        >
+                          <input
+                            checked={formData.serviceLocation === "store"}
+                            className="sr-only"
+                            name="lp-serviceLocation"
+                            type="radio"
+                            value="store"
+                            onChange={() =>
+                              setFormData({
+                                ...formData,
+                                serviceLocation: "store",
+                                streetAddress: "",
+                                city: "",
+                                zip: "",
+                              })
+                            }
+                          />
+                          <span
+                            aria-hidden
+                            className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 ${
+                              formData.serviceLocation === "store"
+                                ? "border-violet-600"
+                                : "border-gray-300"
+                            }`}
+                          >
+                            {formData.serviceLocation === "store" && (
+                              <span className="h-2 w-2 rounded-full bg-violet-600" />
+                            )}
+                          </span>
+                          <span className="flex flex-col gap-0.5">
+                            <span className="text-sm font-medium text-gray-900">
+                              {form.inStoreTitle}
+                            </span>
+                            <span className="text-xs text-gray-500">
+                              {form.inStoreDescription}
+                            </span>
+                          </span>
+                        </label>
+
+                        <label
+                          className={`flex items-start gap-3 p-3 border rounded-xl cursor-pointer transition-colors ${
+                            formData.serviceLocation === "come-to-me"
+                              ? "border-violet-500 bg-violet-50 ring-1 ring-violet-500/20"
+                              : "border-gray-300 hover:border-gray-400"
+                          }`}
+                        >
+                          <input
+                            checked={formData.serviceLocation === "come-to-me"}
+                            className="sr-only"
+                            name="lp-serviceLocation"
+                            type="radio"
+                            value="come-to-me"
+                            onChange={() =>
+                              setFormData({
+                                ...formData,
+                                serviceLocation: "come-to-me",
+                              })
+                            }
+                          />
+                          <span
+                            aria-hidden
+                            className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 ${
+                              formData.serviceLocation === "come-to-me"
+                                ? "border-violet-600"
+                                : "border-gray-300"
+                            }`}
+                          >
+                            {formData.serviceLocation === "come-to-me" && (
+                              <span className="h-2 w-2 rounded-full bg-violet-600" />
+                            )}
+                          </span>
+                          <span className="flex flex-col gap-0.5">
+                            <span className="text-sm font-medium text-gray-900">
+                              {form.onSiteTitle}
+                            </span>
+                            <span className="text-xs text-gray-500">
+                              {form.onSiteDescription}
+                            </span>
+                          </span>
+                        </label>
+                      </div>
+
+                      {formData.serviceLocation === "come-to-me" && (
+                        <ServiceAddressFields
+                          city={formData.city}
+                          cityLabel={form.city}
+                          cityPlaceholder={form.cityPlaceholder}
+                          streetAddress={formData.streetAddress}
+                          streetAddressLabel={form.streetAddress}
+                          streetAddressPlaceholder={form.streetAddressPlaceholder}
+                          zip={formData.zip}
+                          zipLabel={form.zip}
+                          zipPlaceholder={form.zipPlaceholder}
+                          onCityChange={(city) =>
+                            setFormData({ ...formData, city })
+                          }
+                          onStreetAddressChange={(streetAddress) =>
+                            setFormData({ ...formData, streetAddress })
+                          }
+                          onZipChange={(zip) => setFormData({ ...formData, zip })}
+                        />
+                      )}
+                    </div>
+
+                    <SchedulePickers
+                      preferredDate={formData.preferredDate}
+                      preferredDateLabel={form.preferredDate}
+                      preferredTime={formData.preferredTime}
+                      preferredTimeLabel={form.preferredTime}
+                      preferredTimePlaceholder={form.preferredTimePlaceholder}
+                      scheduleHeading={form.scheduleHeading}
+                      onPreferredDateChange={(preferredDate) =>
+                        setFormData({ ...formData, preferredDate })
+                      }
+                      onPreferredTimeChange={(preferredTime) =>
+                        setFormData({ ...formData, preferredTime })
+                      }
+                    />
+
+                    <div>
                       <label
                         className="block text-sm font-semibold text-gray-700 mb-1"
                         htmlFor="lp-issue"
                       >
-                        Describe the Issue *
+                        {form.issueDescription} *
                       </label>
                       <textarea
                         required
@@ -308,7 +451,7 @@ export default function LandingPage() {
                       disabled={!isValid || isSubmitting}
                       type="submit"
                     >
-                      {isSubmitting ? "Sending..." : "Get My Free Quote →"}
+                      {isSubmitting ? form.submitting : form.submit}
                     </button>
 
                     <p className="text-center text-xs text-gray-400">

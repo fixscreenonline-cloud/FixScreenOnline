@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 import Script from "next/script";
+import { headers } from "next/headers";
 
 import { Providers } from "./providers";
 import { StructuredData } from "./structured-data";
@@ -10,6 +11,7 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
 import { ScrollToHash } from "@/components/scroll-to-hash";
+import { AdminRootProviders } from "@/components/admin/admin-root-providers";
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 const GA_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID;
@@ -106,11 +108,15 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") ?? "";
+  const isAdminRoute = pathname.startsWith("/admin");
+
   return (
     <html suppressHydrationWarning lang="en">
       {GTM_ID && (
@@ -155,11 +161,15 @@ export default function RootLayout({
           </noscript>
         )}
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <ScrollToHash />
-          <div className="relative flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow">{children}</main>
-          </div>
+          {isAdminRoute ? (
+            <AdminRootProviders>{children}</AdminRootProviders>
+          ) : (
+            <div className="relative flex flex-col min-h-screen">
+              <ScrollToHash />
+              <Navbar />
+              <main className="flex-grow max-lg:pt-[3.75rem]">{children}</main>
+            </div>
+          )}
         </Providers>
       </body>
     </html>
