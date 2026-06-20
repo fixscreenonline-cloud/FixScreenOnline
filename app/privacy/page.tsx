@@ -99,8 +99,8 @@ export default function PrivacyPage() {
             </p>
             <ul className="list-disc pl-5 space-y-1 mt-2">
               <li>
-                <strong>Email service providers</strong> (e.g., Resend) strictly
-                to deliver service confirmation emails.
+                <strong>Hosting and database providers</strong> strictly to
+                store and manage booking requests.
               </li>
               <li>
                 <strong>Analytics providers</strong> (Google Analytics) under

@@ -5,8 +5,7 @@ This guide covers deploying the secure admin management system for FixScreenOnli
 ## Prerequisites
 
 - Node.js 20+
-- PostgreSQL 14+ (Neon, Supabase, Railway, or self-hosted)
-- Resend API key (optional, for email notifications)
+- MongoDB (Atlas or self-hosted)
 
 ## Environment Variables
 
@@ -18,8 +17,6 @@ Add these to `.env.local` (development) and your hosting provider (production):
 | `AUTH_SECRET` | Yes | Random 32+ byte secret for Auth.js |
 | `ADMIN_SEED_EMAIL` | Seed only | Initial admin email |
 | `ADMIN_SEED_PASSWORD` | Seed only | Initial admin password (min 8 chars) |
-| `RESEND_API_KEY` | Optional | Email notifications for new bookings |
-| `ADMIN_EMAIL` | Optional | Recipient for booking notification emails |
 
 Generate `AUTH_SECRET`:
 
