@@ -1,4 +1,4 @@
-export const MAX_FAILED_ATTEMPTS = 3;
+export const MAX_FAILED_ATTEMPTS = 7;
 export const LOCKOUT_DURATION_MS = 15 * 60 * 1000;
 export const SESSION_TIMEOUT_MS = 30 * 60 * 1000;
 export const PENDING_AUTH_TTL_MS = 5 * 60 * 1000;

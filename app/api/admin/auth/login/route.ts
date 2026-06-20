@@ -5,6 +5,7 @@ import { verifyPassword } from "@/lib/auth/password";
 import { logAudit, logLoginAttempt } from "@/lib/auth/audit";
 import { checkRateLimit } from "@/lib/auth/rate-limit";
 import { getClientIp, getUserAgent } from "@/lib/auth/request";
+import { MAX_FAILED_ATTEMPTS } from "@/lib/auth/constants";
 import {
   isAccountLocked,
   recordFailedLogin,
@@ -94,7 +95,7 @@ export async function POST(request: NextRequest) {
         await logAudit({
           adminId: admin.id,
           action: "ACCOUNT_LOCKED",
-          details: "Account locked after 3 failed login attempts",
+          details: `Account locked after ${MAX_FAILED_ATTEMPTS} failed login attempts`,
           ipAddress: ip,
           userAgent,
         });
@@ -112,7 +113,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           error: "Invalid email or password",
-          attemptsRemaining: Math.max(0, 3 - admin.failedAttempts - 1),
+          attemptsRemaining: Math.max(
+            0,
+            MAX_FAILED_ATTEMPTS - admin.failedAttempts - 1,
+          ),
         },
         { status: 401 },
       );

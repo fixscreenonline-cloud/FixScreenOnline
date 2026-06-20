@@ -49,7 +49,7 @@ DATABASE_URL="your-production-url" npm run db:seed
 
 - bcrypt password hashing (12 rounds)
 - Mandatory TOTP 2FA with recovery codes
-- 3 failed login attempts → 15 minute lockout with countdown
+- 7 failed login attempts → 15 minute lockout with countdown
 - Failed login logging (IP, timestamp, user agent)
 - 30-minute session inactivity timeout
 - HTTP-only session cookies
