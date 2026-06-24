@@ -4,14 +4,22 @@ import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
 async function main() {
-  const email = process.env.ADMIN_SEED_EMAIL ?? "admin@fixscreenonline.com";
+  const email = (
+    process.env.ADMIN_SEED_EMAIL ?? "admin@fixscreenonline.com"
+  )
+    .trim()
+    .toLowerCase();
   const password = process.env.ADMIN_SEED_PASSWORD ?? "ChangeMe123!";
 
   const passwordHash = await bcrypt.hash(password, 12);
 
   await prisma.admin.upsert({
     where: { email },
-    update: {},
+    update: {
+      passwordHash,
+      failedAttempts: 0,
+      lockedUntil: null,
+    },
     create: {
       email,
       passwordHash,
@@ -20,7 +28,7 @@ async function main() {
   });
 
   console.log(`Admin user ready: ${email}`);
-  console.log("Default password (change immediately):", password);
+  console.log("Password synced from ADMIN_SEED_PASSWORD.");
   console.log("2FA setup will be required on first login.");
 }
 

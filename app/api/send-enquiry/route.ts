@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { createBooking } from "@/lib/admin/bookings-service";
+import { notifyAdminNewBooking } from "@/lib/email/notify-admin-booking";
 import { mapZodFieldErrors } from "@/lib/validations/booking-form";
 import { publicBookingPayloadSchema } from "@/lib/validations/booking";
 
@@ -44,6 +45,21 @@ export async function POST(request: NextRequest) {
       zip: zip ?? "",
       preferredDate: preferredDate ?? "",
       preferredTime: preferredTime ?? "",
+      issue,
+    });
+
+    void notifyAdminNewBooking({
+      id: booking.id,
+      name,
+      email,
+      phone,
+      device,
+      serviceLocation,
+      streetAddress: streetAddress ?? "",
+      city: city ?? "",
+      zip: zip ?? "",
+      preferredDate,
+      preferredTime,
       issue,
     });
 

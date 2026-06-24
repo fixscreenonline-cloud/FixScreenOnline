@@ -3,14 +3,42 @@ import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
+async function findAdminByEmail(email: string) {
+  const normalized = email.trim().toLowerCase();
+
+  const exact = await prisma.admin.findUnique({ where: { email: normalized } });
+
+  if (exact) return exact;
+
+  const admins = await prisma.admin.findMany();
+  const match = admins.find(
+    (admin) => admin.email.trim().toLowerCase() === normalized,
+  );
+
+  if (!match) return null;
+
+  if (match.email !== normalized) {
+    return prisma.admin.update({
+      where: { id: match.id },
+      data: { email: normalized },
+    });
+  }
+
+  return match;
+}
+
 async function main() {
-  const email = process.env.ADMIN_SEED_EMAIL?.trim().toLowerCase();
+  const email = process.env.ADMIN_SEED_EMAIL?.trim();
+
+  if (!email) {
+    console.error("Missing ADMIN_SEED_EMAIL in .env.local");
+    process.exit(1);
+  }
+
   const password = process.env.ADMIN_SEED_PASSWORD;
 
-  if (!email || !password) {
-    console.error(
-      "Missing ADMIN_SEED_EMAIL or ADMIN_SEED_PASSWORD in .env.local",
-    );
+  if (!password) {
+    console.error("Missing ADMIN_SEED_PASSWORD in .env.local");
     process.exit(1);
   }
 
@@ -19,11 +47,22 @@ async function main() {
     process.exit(1);
   }
 
-  const admin = await prisma.admin.findUnique({ where: { email } });
+  const admin = await findAdminByEmail(email);
 
   if (!admin) {
-    console.error(`No admin account found for ${email}`);
-    console.error("Run npm run db:seed first to create the admin user.");
+    const admins = await prisma.admin.findMany({ select: { email: true } });
+
+    console.error(`No admin account found for ${email.trim().toLowerCase()}`);
+
+    if (admins.length > 0) {
+      console.error("Existing admin emails:");
+      for (const entry of admins) {
+        console.error(`  - ${entry.email}`);
+      }
+    } else {
+      console.error("Run npm run db:seed first to create the admin user.");
+    }
+
     process.exit(1);
   }
 
@@ -32,14 +71,15 @@ async function main() {
   await prisma.admin.update({
     where: { id: admin.id },
     data: {
+      email: admin.email.trim().toLowerCase(),
       passwordHash,
       failedAttempts: 0,
       lockedUntil: null,
     },
   });
 
-  console.log(`Password updated for ${email}`);
-  console.log("You can now sign in with the new password.");
+  console.log(`Password updated for ${admin.email.trim().toLowerCase()}`);
+  console.log("Login lockout cleared. Sign in with your new password.");
 }
 
 main()

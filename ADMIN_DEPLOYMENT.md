@@ -15,8 +15,8 @@ Add these to `.env.local` (development) and your hosting provider (production):
 |----------|----------|-------------|
 | `DATABASE_URL` | Yes | PostgreSQL connection string |
 | `AUTH_SECRET` | Yes | Random 32+ byte secret for Auth.js |
-| `ADMIN_SEED_EMAIL` | Seed only | Initial admin email |
-| `ADMIN_SEED_PASSWORD` | Seed only | Initial admin password (min 8 chars) |
+| `ADMIN_SEED_EMAIL` | Seed / reset | Admin email (normalized to lowercase) |
+| `ADMIN_SEED_PASSWORD` | Seed / reset | Admin password — synced by `db:seed` or `admin:change-password` |
 
 Generate `AUTH_SECRET`:
 
@@ -91,9 +91,13 @@ If you forgot your password or cannot sign in:
    ADMIN_SEED_EMAIL=fixscreenonline@gmail.com
    ADMIN_SEED_PASSWORD=YourNewSecurePassword123!
    ```
-2. Run:
+2. Run **either**:
    ```bash
    npm run admin:change-password
+   ```
+   or:
+   ```bash
+   npm run db:seed
    ```
 3. Sign in with the new password
 

@@ -12,6 +12,7 @@
     "db:push": "dotenv -e .env.local -- prisma db push",
     "db:seed": "dotenv -e .env.local -- npx tsx prisma/seed.ts",
     "admin:change-password": "dotenv -e .env.local -- npx tsx scripts/change-admin-password.ts",
+    "email:test-booking": "dotenv -e .env.local -- npx tsx scripts/send-test-booking-email.ts",
     "postinstall": "prisma generate"
   },
   "prisma": {
